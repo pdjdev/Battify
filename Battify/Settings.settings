@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Battify" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="theme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dark</Value>
+    </Setting>
+    <Setting Name="traytheme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">white</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

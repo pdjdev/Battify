@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>True</UseWindowsForms>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <Title>Battify</Title>
+    <PackageId>Battify</PackageId>
+    <Version>0.1.0</Version>
+    <Company>PBJSoftware</Company>
+    <Copyright>PBJSoftware</Copyright>
+    <Description>Easy-to-Use Battery Notify App for Windows Laptops</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="AppIcon.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppIcon.resx</DependentUpon>
+    </Compile>
+    <Compile Update="BattIconBlack.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BattIconBlack.resx</DependentUpon>
+    </Compile>
+    <Compile Update="BattIconWhite.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BattIconWhite.resx</DependentUpon>
+    </Compile>
+    <Compile Update="DefAlertSound.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DefAlertSound.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="AppIcon.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppIcon.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="BattIconBlack.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BattIconBlack.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="BattIconWhite.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BattIconWhite.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DefAlertSound.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DefAlertSound.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

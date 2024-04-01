@@ -1,0 +1,87 @@
+﻿<Window x:Class="Battify.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Battify" Height="100" Width="250"
+        WindowStyle="None" AllowsTransparency="True"
+        Background="Transparent"
+        MouseDoubleClick="Window_MouseDoubleClick" ShowInTaskbar="False" ShowActivated="False" ResizeMode="NoResize">
+
+    <Border x:Name="PopupBorder" Background="#f0f0f0" CornerRadius="10" Margin="10">
+        <Border.Effect>
+            <DropShadowEffect Color="black" Direction="320" ShadowDepth="0" Opacity="0.5" BlurRadius="10"/>
+        </Border.Effect>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Viewbox Grid.Column="0" Width="auto" Height="auto" Margin="15">
+                <Canvas x:Name="BatteryCanvas" Width="1" Height="1">
+                    <Path Stroke="Black" StrokeThickness="0.1" Canvas.Left="0" StrokeLineJoin="Round">
+                        <!-- 원래 좌여백값: 0.2-->
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathGeometry.Figures>
+                                    <PathFigure StartPoint="0.05,0.2" IsClosed="True">
+                                        <PathFigure.Segments>
+                                            <LineSegment Point="0.6,0.2"/>
+                                            <LineSegment Point="0.6,1"/>
+                                            <LineSegment Point="0.05,1"/>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                </PathGeometry.Figures>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+                    <Rectangle Fill="Black"
+                               Canvas.Left="0.2"
+                               Canvas.Top="0.0"
+                               Width="0.25"
+                               Height="0.1"
+                    />
+                    <Rectangle Fill="Black"
+                               Canvas.Left="0.15"
+                               Canvas.Top="0.3"
+                               Width="0.35"
+                               Height="0.6"
+                    />
+
+
+                    <Path Stroke="Black" StrokeThickness="0.08" Fill="Black" Canvas.Left="0.7" Canvas.Top="0.4" StrokeLineJoin="Round">
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathFigure StartPoint="0.25,0" IsClosed="True">
+                                    <!-- 처음 맨 위 -->
+                                    <LineSegment Point="0.05,0.35"/>
+                                    <!-- 맨 좌측 -->
+                                    <LineSegment Point="0.2,0.35"/>
+                                    <!--  맨 좌측 중앙 -->
+                                    <LineSegment Point="0.15,0.6"/>
+                                    <!-- 맨 아래 -->
+                                    <LineSegment Point="0.35,0.25"/>
+                                    <!-- 맨 우측 -->
+                                    <LineSegment Point="0.2,0.25"/>
+                                    <!-- 맨 우측 중앙 -->
+                                </PathFigure>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+
+
+                </Canvas>
+            </Viewbox>
+            <TextBlock x:Name="PercentLabel" Grid.Column="1" Text="80%" VerticalAlignment="Center" Margin="0,5,0,0"
+                       FontSize="40" FontWeight="Light"
+                       LineHeight="40" LineStackingStrategy="BlockLineHeight"/>
+        </Grid>
+
+    </Border>
+
+
+</Window>
+
+    
