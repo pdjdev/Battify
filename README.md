@@ -4,6 +4,8 @@ Windows 트레이 아이콘 배터리 퍼센트 표시 프로그램
 
 <sub>[구 WinForm 버전 리포지토리 링크](https://github.com/pdjdev/Battify-WinForm)</sub>
 
+### [최신 exe 빌드 다운로드](https://github.com/pdjdev/Battify/releases/download/v0.1/Battify.exe)
+
 # 요구 사양
 - Windows 10+ 이상 버전
 - .NET 8
