@@ -1,5 +1,7 @@
 # Battify
 <img src="preview_video.webp" width="800" height="450" />
+<img src="https://github.com/pdjdev/Battify/assets/24975076/8521640c-b050-4801-9557-583e5dc671b6" width="800" />
+
 Windows 트레이 아이콘 배터리 퍼센트 표시 프로그램  
 
 <sub>[구 WinForm 버전 리포지토리 링크](https://github.com/pdjdev/Battify-WinForm)</sub>
