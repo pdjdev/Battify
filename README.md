@@ -8,14 +8,14 @@ Windows 트레이 아이콘 배터리 퍼센트 표시 프로그램
 
 ### [최신 exe 빌드 다운로드](https://github.com/pdjdev/Battify/releases/download/v0.1/Battify.exe)
 
-# 요구 사양
+## 요구 사양
 - Windows 10+ 이상 버전
 - .NET 8
 
-# 사용 방법
+## 사용 방법
 - 프로그램을 실행합니다.
 
-# 시작프로그램 설정
+## 시작프로그램 설정
 ### 방법 1
 - 프로그램 실행 후 설정 안내 메시지를 클릭합니다.
 ### 방법 2
