@@ -78,7 +78,7 @@
             trayIcon.BalloonTipTitle = "시작 프로그램 설정 안됨";
             trayIcon.BalloonTipText = "여기를 눌러 시작프로그램으로 설정하세요.";
             trayIcon.BalloonTipIcon = ToolTipIcon.Info;
-            
+
 
             // balloontip 클릭시
             trayIcon.BalloonTipClicked += (sender, e) =>
@@ -87,6 +87,17 @@
             };
 
             trayIcon.ShowBalloonTip(3000);
+        }
+
+        private void muteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Settings.Default.mute = !Settings.Default.mute;
+            Settings.Default.Save();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            muteToolStripMenuItem.Text = "음소거 " + (Settings.Default.mute ? "해제" : "설정");
         }
     }
 }

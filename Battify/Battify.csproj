@@ -10,7 +10,7 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <Title>Battify</Title>
     <PackageId>Battify</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Company>PBJSoftware</Company>
     <Copyright>PBJSoftware</Copyright>
     <Description>Easy-to-Use Battery Notify App for Windows Laptops</Description>

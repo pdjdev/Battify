@@ -98,8 +98,9 @@ namespace Battify
                             // 충전 중
                             Debug.WriteLine("Charging");
 
-                            // 충전음 재생
-                            snd.Play();
+                            // 충전음 재생 - 음소거 아닐 시에만!
+                            if (Settings.Default.mute == false) snd.Play();
+
                             plugged = true;
                         }
                         else if (status.ACLineStatus == 0)

@@ -33,9 +33,10 @@
             closeAppToolStripMenuItem = new ToolStripMenuItem();
             changeThemeToolStripMenuItem = new ToolStripMenuItem();
             changeTrayToolStripMenuItem = new ToolStripMenuItem();
+            muteToolStripMenuItem = new ToolStripMenuItem();
             showBattInfoToolStripMenuItem = new ToolStripMenuItem();
-            trayIcon = new NotifyIcon(components);
             infoItemToolStripMenuItem = new ToolStripMenuItem();
+            trayIcon = new NotifyIcon(components);
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -43,11 +44,12 @@
             // 
             contextMenuStrip1.BackColor = Color.FromArgb(30, 30, 30);
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { closeAppToolStripMenuItem, changeThemeToolStripMenuItem, changeTrayToolStripMenuItem, showBattInfoToolStripMenuItem, infoItemToolStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { closeAppToolStripMenuItem, changeThemeToolStripMenuItem, changeTrayToolStripMenuItem, muteToolStripMenuItem, showBattInfoToolStripMenuItem, infoItemToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.RenderMode = ToolStripRenderMode.System;
             contextMenuStrip1.ShowImageMargin = false;
-            contextMenuStrip1.Size = new Size(187, 184);
+            contextMenuStrip1.Size = new Size(187, 216);
+            contextMenuStrip1.Opening += contextMenuStrip1_Opening;
             // 
             // closeAppToolStripMenuItem
             // 
@@ -85,6 +87,18 @@
             changeTrayToolStripMenuItem.Text = "아이콘 색상 변경";
             changeTrayToolStripMenuItem.Click += changeTrayToolStripMenuItem_Click;
             // 
+            // muteToolStripMenuItem
+            // 
+            muteToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            muteToolStripMenuItem.Font = new Font("맑은 고딕", 9F);
+            muteToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
+            muteToolStripMenuItem.Margin = new Padding(0, 5, 0, 5);
+            muteToolStripMenuItem.Name = "muteToolStripMenuItem";
+            muteToolStripMenuItem.Padding = new Padding(0);
+            muteToolStripMenuItem.Size = new Size(186, 22);
+            muteToolStripMenuItem.Text = "알림음 끄기";
+            muteToolStripMenuItem.Click += muteToolStripMenuItem_Click;
+            // 
             // showBattInfoToolStripMenuItem
             // 
             showBattInfoToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
@@ -97,13 +111,6 @@
             showBattInfoToolStripMenuItem.Text = "배터리 정보";
             showBattInfoToolStripMenuItem.Click += showBattInfoToolStripMenuItem_Click;
             // 
-            // trayIcon
-            // 
-            trayIcon.ContextMenuStrip = contextMenuStrip1;
-            trayIcon.Text = "Battify";
-            trayIcon.Visible = true;
-            trayIcon.MouseDoubleClick += trayIcon_MouseDoubleClick;
-            // 
             // infoItemToolStripMenuItem
             // 
             infoItemToolStripMenuItem.Enabled = false;
@@ -111,7 +118,14 @@
             infoItemToolStripMenuItem.ForeColor = Color.Silver;
             infoItemToolStripMenuItem.Name = "infoItemToolStripMenuItem";
             infoItemToolStripMenuItem.Size = new Size(186, 24);
-            infoItemToolStripMenuItem.Text = "Battify (WPF-0.1.Alpha)";
+            infoItemToolStripMenuItem.Text = "Battify (WPF-0.2.Alpha)";
+            // 
+            // trayIcon
+            // 
+            trayIcon.ContextMenuStrip = contextMenuStrip1;
+            trayIcon.Text = "Battify";
+            trayIcon.Visible = true;
+            trayIcon.MouseDoubleClick += trayIcon_MouseDoubleClick;
             // 
             // TrayControl
             // 
@@ -131,5 +145,6 @@
         private ToolStripMenuItem changeTrayToolStripMenuItem;
         private ToolStripMenuItem showBattInfoToolStripMenuItem;
         private ToolStripMenuItem infoItemToolStripMenuItem;
+        private ToolStripMenuItem muteToolStripMenuItem;
     }
 }
