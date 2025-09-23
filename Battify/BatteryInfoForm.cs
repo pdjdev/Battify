@@ -24,15 +24,33 @@ namespace Battify
             InitializeComponent();
         }
 
-        private void BatteryInfoForm_Load(object sender, EventArgs e)
+        private async void BatteryInfoForm_Load(object sender, EventArgs e)
         {
             // 주 화면의 우측 하단에 표시
             this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Width, Screen.PrimaryScreen.WorkingArea.Height - this.Height);
-            BatteryInfoGetter.Load();
-            updateText();
-
+            
+            // StatusTextBox를 비활성화하고 로딩 메시지 표시
+            StatusTextBox.Enabled = false;
+            StatusTextBox.Text = "로드 중...";
+            
             SetStartupChk.Checked = StartupSetter.CheckStartup();
+            
+            // 배터리 정보를 비동기적으로 로드
+            await LoadBatteryInfoAsync();
+            
             loaded = true;
+        }
+
+        private async Task LoadBatteryInfoAsync()
+        {
+            await Task.Run(() => 
+            {
+                BatteryInfoGetter.Load();
+            });
+            
+            // UI 스레드에서 텍스트 업데이트 및 StatusTextBox 활성화
+            StatusTextBox.Enabled = true;
+            updateText();
         }
 
         private void startTimer_Click(object sender, EventArgs e)
@@ -138,11 +156,13 @@ namespace Battify
             StatusTextBox.Text = resultString;
         }
 
-        private void updateBt_Click(object sender, EventArgs e)
+        private async void updateBt_Click(object sender, EventArgs e)
         {
-            BatteryInfoGetter.Load();
-            updateText();
-
+            // 업데이트 버튼도 비동기로 처리
+            StatusTextBox.Enabled = false;
+            StatusTextBox.Text = "로드 중...";
+            
+            await LoadBatteryInfoAsync();
         }
 
         private void SetStartupChk_CheckedChanged(object sender, EventArgs e)
