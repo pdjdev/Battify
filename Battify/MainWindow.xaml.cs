@@ -56,6 +56,9 @@ namespace Battify
             trayControl = new TrayControl(this);
 
             this.Hide();
+            
+            // 프로그램 시작 시 자동 테마 체크 및 적용
+            CheckAndApplyAutoTheme();
             loadTheme();
             InitBattTimer();
 
@@ -66,6 +69,26 @@ namespace Battify
             };
 
             
+        }
+
+        /// <summary>
+        /// auto 설정일 때 현재 Windows 테마를 체크하고 적용합니다.
+        /// </summary>
+        public void CheckAndApplyAutoTheme()
+        {
+            // 팝업 테마가 auto인 경우에만 체크
+            if (Settings.Default.theme == "auto")
+            {
+                // 현재 테마 다시 로드
+                loadTheme();
+            }
+            
+            // 트레이 아이콘 테마가 auto인 경우에만 체크
+            if (Settings.Default.traytheme == "auto")
+            {
+                // 아이콘 업데이트
+                UpdateIcon(percentage);
+            }
         }
 
         private void InitBattTimer()
@@ -121,6 +144,9 @@ namespace Battify
                         previousBatteryLife = status.BatteryLifePercent;
 
                         percentage = status.BatteryLifePercent;
+                        
+                        // 퍼센트 변경 시 자동 테마 체크 (트레이 아이콘 갱신)
+                        CheckAndApplyAutoTheme();
                         UpdateIcon(percentage);
                         // DrawBattery(percentage, plugged);
                         UpdateValue();
@@ -151,6 +177,9 @@ namespace Battify
                 return;
             }
             isShown = true;
+
+            // 팝업이 뜰 때 자동 테마 체크
+            CheckAndApplyAutoTheme();
 
             const double margin = 10;
             var dpi = VisualTreeHelper.GetDpi(this);
@@ -222,14 +251,17 @@ namespace Battify
         // 테마 로드
         public void loadTheme()
         {
-            if (Settings.Default.theme == "light")
+            // 실제 적용할 테마 가져오기 (auto인 경우 시스템 테마 감지)
+            string effectiveTheme = WindowsInfoGetter.GetEffectiveTheme(Settings.Default.theme);
+            
+            if (effectiveTheme == "light")
             {
                 // 배경색 변경
                 PopupBorder.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(250, 250, 250));
                 // 텍스트 색 변경
                 this.Foreground = new SolidColorBrush(System.Windows.Media.Color.FromRgb(20, 20, 20));
             }
-            else if (Settings.Default.theme == "dark")
+            else if (effectiveTheme == "dark")
             {
                 // 배경색 변경
                 PopupBorder.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(10, 10, 10));
@@ -253,9 +285,12 @@ namespace Battify
             // BatteryCanvas 내용 지우기
             BatteryCanvas.Children.Clear();
 
+            // 실제 적용할 테마 가져오기 (auto인 경우 시스템 테마 감지)
+            string effectiveTheme = WindowsInfoGetter.GetEffectiveTheme(Settings.Default.theme);
+            
             // 브러시 색상 설정
             System.Windows.Media.Brush brush = System.Windows.Media.Brushes.Black;
-            if (Settings.Default.theme == "dark")
+            if (effectiveTheme == "dark")
             {
                 brush = System.Windows.Media.Brushes.White;
             }
@@ -365,7 +400,10 @@ namespace Battify
         {
             Icon icon = null;
 
-            switch (Settings.Default.traytheme)
+            // 실제 적용할 트레이 테마 가져오기 (auto인 경우 시스템 테마 감지)
+            string effectiveTrayTheme = WindowsInfoGetter.GetEffectiveTrayTheme(Settings.Default.traytheme);
+
+            switch (effectiveTrayTheme)
             {
                 case "white":
                     icon = BattIconWhite.ResourceManager.GetObject("_" + percentage.ToString()) as Icon;

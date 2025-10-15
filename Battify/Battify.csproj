@@ -1,8 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup Label="Globals">
+    <!-- <WebView2EnableCsWinRTProjection>False</WebView2EnableCsWinRTProjection> -->
+    <Platforms>x86</Platforms>
+  </PropertyGroup>
+
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.18362.0</TargetFramework>
+	<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
@@ -10,14 +16,23 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <Title>Battify</Title>
     <PackageId>Battify</PackageId>
-    <Version>0.2.0</Version>
+    <Version>1.0.0</Version>
     <Company>PBJSoftware</Company>
     <Copyright>PBJSoftware</Copyright>
     <Description>Easy-to-Use Battery Notify App for Windows Laptops</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="icon.ico" />
+    <Content Include="icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.251003001" />
   </ItemGroup>
 
   <ItemGroup>
@@ -73,5 +88,5 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-
+	
 </Project>
