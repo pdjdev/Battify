@@ -10,7 +10,7 @@
 	<Identity
     Name="49490PBJSoftware.Battify"
     Publisher="CN=998C84B6-4B4D-482F-B102-3947ACC42DA7"
-    Version="1.0.0.0" />
+    Version="1.0.1.0" />
 
   <Properties>
     <DisplayName>Battify</DisplayName>

@@ -1,9 +1,4 @@
 ﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Battify
 {
@@ -23,7 +18,8 @@ namespace Battify
         public static bool CheckStartup()
         {
             RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            return !(rk.GetValue("Battify") == null);
+            var registryValue = rk.GetValue("Battify") as string;
+            return registryValue != null && registryValue.Equals(Application.ExecutablePath, StringComparison.OrdinalIgnoreCase);
         }
     }
 }

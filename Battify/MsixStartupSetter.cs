@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microsoft.Win32;
+#if STORE_BUILD
 using Windows.ApplicationModel;
+#endif
 
 namespace Battify
 {
@@ -13,6 +14,10 @@ namespace Battify
         // MSIX 패키지인지 확인
         private static bool IsMsixPackage()
         {
+#if !STORE_BUILD
+            // 포터블 빌드에서는 항상 false 반환
+            return false;
+#else
             try
             {
                 // 1. 환경 변수 확인
@@ -43,10 +48,12 @@ namespace Battify
             {
                 return false;
             }
+#endif
         }
 
         public static async Task<bool> IsStartupEnabledAsync()
         {
+#if STORE_BUILD
             if (IsMsixPackage())
             {
                 try
@@ -56,7 +63,7 @@ namespace Battify
                     if (startupTask != null)
                     {
                         System.Diagnostics.Debug.WriteLine($"현재 StartupTask 상태: {startupTask.State}");
-                        
+
                         // Enabled만 활성 상태로 간주
                         return startupTask.State == Windows.ApplicationModel.StartupTaskState.Enabled;
                     }
@@ -66,6 +73,7 @@ namespace Battify
                     System.Diagnostics.Debug.WriteLine($"MSIX StartupTask 확인 실패: {ex.Message}");
                 }
             }
+#endif
 
             // MSIX가 아니거나 StartupTask 사용 실패 시 Registry 방식 사용
             return StartupSetter.CheckStartup();
@@ -73,6 +81,7 @@ namespace Battify
 
         public static async Task<bool> SetStartupAsync(bool enable)
         {
+#if STORE_BUILD
             if (IsMsixPackage())
             {
                 try
@@ -82,7 +91,7 @@ namespace Battify
                     if (startupTask != null)
                     {
                         System.Diagnostics.Debug.WriteLine($"설정 전 StartupTask 상태: {startupTask.State}");
-                        
+
                         if (enable)
                         {
                             // Microsoft 문서와 동일한 switch 구조 사용
@@ -118,14 +127,14 @@ namespace Battify
                             if (startupTask.State == Windows.ApplicationModel.StartupTaskState.Enabled)
                             {
                                 startupTask.Disable();
-                                
+
                                 // 잠시 대기 후 상태 재확인
                                 await Task.Delay(100);
-                                
+
                                 // 상태 재확인을 위해 다시 가져오기
                                 var updatedTask = await Windows.ApplicationModel.StartupTask.GetAsync(TaskId);
                                 System.Diagnostics.Debug.WriteLine($"Disable 후 상태: {updatedTask.State}");
-                                
+
                                 return updatedTask.State == Windows.ApplicationModel.StartupTaskState.Disabled;
                             }
                             else
@@ -142,6 +151,7 @@ namespace Battify
                     return false;
                 }
             }
+#endif
 
             // MSIX가 아닌 환경에서는 Registry 방식 사용
             try
@@ -158,6 +168,7 @@ namespace Battify
         // 디버깅을 위한 추가 메서드
         public static async Task<string> GetCurrentStateAsync()
         {
+#if STORE_BUILD
             if (IsMsixPackage())
             {
                 try
@@ -173,13 +184,15 @@ namespace Battify
                     return $"Error: {ex.Message}";
                 }
             }
-            
+#endif
+
             return "Not MSIX Package";
         }
 
         // 사용자에게 수동 활성화 메시지를 표시하는 메서드
         public static async Task<bool> HandleDisabledByUserAsync()
         {
+#if STORE_BUILD
             if (IsMsixPackage())
             {
                 try
@@ -195,6 +208,7 @@ namespace Battify
                     // 무시
                 }
             }
+#endif
             return false;
         }
     }
