@@ -56,6 +56,9 @@ namespace Battify
             trayControl = new TrayControl(this);
 
             this.Hide();
+
+            // 프로그램 시작 시 자동 테마 체크 및 적용
+            CheckAndApplyAutoTheme();
             loadTheme();
             InitBattTimer();
 
@@ -63,9 +66,45 @@ namespace Battify
             {
                 Debug.WriteLine("Battify WPF loaded");
                 //PerformPopup();
+                
+                // 첫 실행 시 트레이 가이드 창 표시
+                ShowTrayGuideIfFirstRun();
             };
+        }
 
-            
+        /// <summary>
+        /// 첫 실행 시 트레이 가이드 창을 표시합니다.
+        /// </summary>
+        private void ShowTrayGuideIfFirstRun()
+        {
+            // CheckedTrayGuide가 false인 경우 (첫 실행)
+            if (!Settings.Default.CheckedTrayGuide)
+            {
+                Debug.WriteLine("첫 실행 감지: 트레이 가이드 창 표시");
+                
+                var trayGuideWindow = new TrayGuideWindow();
+                trayGuideWindow.Show();
+            }
+        }
+
+        /// <summary>
+        /// auto 설정일 때 현재 Windows 테마를 체크하고 적용합니다.
+        /// </summary>
+        public void CheckAndApplyAutoTheme()
+        {
+            // 팝업 테마가 auto인 경우에만 체크
+            if (Settings.Default.theme == "auto")
+            {
+                // 현재 테마 다시 로드
+                loadTheme();
+            }
+
+            // 트레이 아이콘 테마가 auto인 경우에만 체크
+            if (Settings.Default.traytheme == "auto")
+            {
+                // 아이콘 업데이트
+                UpdateIcon(percentage);
+            }
         }
 
         private void InitBattTimer()
@@ -121,21 +160,32 @@ namespace Battify
                         previousBatteryLife = status.BatteryLifePercent;
 
                         percentage = status.BatteryLifePercent;
+
+                        // 퍼센트 변경 시 자동 테마 체크 (트레이 아이콘 갱신)
+                        CheckAndApplyAutoTheme();
                         UpdateIcon(percentage);
                         // DrawBattery(percentage, plugged);
                         UpdateValue();
                     }
                 }
 
-                trayControl.trayIcon.Text = percentage.ToString() + "%";
-
-                if (plugged)
+                // 트레이 아이콘 툴팁 텍스트 설정
+                if (percentage < 0 || percentage > 100)
                 {
-                    trayControl.trayIcon.Text += ", 충전중";
+                    trayControl.trayIcon.Text = "배터리 없음";
                 }
                 else
                 {
-                    trayControl.trayIcon.Text += " 남음";
+                    trayControl.trayIcon.Text = percentage.ToString() + "%";
+
+                    if (plugged)
+                    {
+                        trayControl.trayIcon.Text += ", 충전중";
+                    }
+                    else
+                    {
+                        trayControl.trayIcon.Text += " 남음";
+                    }
                 }
             };
 
@@ -151,6 +201,9 @@ namespace Battify
                 return;
             }
             isShown = true;
+
+            // 팝업이 뜰 때 자동 테마 체크
+            CheckAndApplyAutoTheme();
 
             const double margin = 10;
             var dpi = VisualTreeHelper.GetDpi(this);
@@ -222,14 +275,17 @@ namespace Battify
         // 테마 로드
         public void loadTheme()
         {
-            if (Settings.Default.theme == "light")
+            // 실제 적용할 테마 가져오기 (auto인 경우 시스템 테마 감지)
+            string effectiveTheme = WindowsInfoGetter.GetEffectiveTheme(Settings.Default.theme);
+
+            if (effectiveTheme == "light")
             {
                 // 배경색 변경
                 PopupBorder.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(250, 250, 250));
                 // 텍스트 색 변경
                 this.Foreground = new SolidColorBrush(System.Windows.Media.Color.FromRgb(20, 20, 20));
             }
-            else if (Settings.Default.theme == "dark")
+            else if (effectiveTheme == "dark")
             {
                 // 배경색 변경
                 PopupBorder.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(10, 10, 10));
@@ -244,7 +300,17 @@ namespace Battify
         {
             GetSystemPowerStatus(out SYSTEM_POWER_STATUS status);
             percentage = status.BatteryLifePercent;
-            PercentLabel.Text = percentage.ToString() + "%";
+            
+            // 배터리 퍼센트가 유효 범위(0-100)를 벗어나면 N/A 표시
+            if (percentage < 0 || percentage > 100)
+            {
+                PercentLabel.Text = "N/A";
+            }
+            else
+            {
+                PercentLabel.Text = percentage.ToString() + "%";
+            }
+            
             DrawBattery(percentage, plugged);
         }
 
@@ -253,9 +319,15 @@ namespace Battify
             // BatteryCanvas 내용 지우기
             BatteryCanvas.Children.Clear();
 
+            // 배터리 퍼센트가 유효 범위(0-100)를 벗어나면 0으로 처리
+            int displayPercentage = (percentage < 0 || percentage > 100) ? 0 : percentage;
+
+            // 실제 적용할 테마 가져오기 (auto인 경우 시스템 테마 감지)
+            string effectiveTheme = WindowsInfoGetter.GetEffectiveTheme(Settings.Default.theme);
+
             // 브러시 색상 설정
             System.Windows.Media.Brush brush = System.Windows.Media.Brushes.Black;
-            if (Settings.Default.theme == "dark")
+            if (effectiveTheme == "dark")
             {
                 brush = System.Windows.Media.Brushes.White;
             }
@@ -337,16 +409,16 @@ namespace Battify
             Canvas.SetTop(rectangle, 0.0);
 
 
-            // 잔량 그리기
+            // 잔량 그리기 (displayPercentage 사용)
             System.Windows.Shapes.Rectangle remain = new System.Windows.Shapes.Rectangle
             {
                 Fill = brush,
                 Width = 0.35,
-                Height = 0.6 * (percentage / 100.0) // 0.6은 배터리의 높이
+                Height = 0.6 * (displayPercentage / 100.0) // 0.6은 배터리의 높이
             };
 
             Canvas.SetLeft(remain, LeftMargin + 0.15);
-            Canvas.SetTop(remain, 0.3 + (1 - percentage / 100.0) * 0.6);
+            Canvas.SetTop(remain, 0.3 + (1 - displayPercentage / 100.0) * 0.6);
 
 
             // Path와 Rectangle, remain을 Canvas에 추가
@@ -363,20 +435,21 @@ namespace Battify
 
         public void UpdateIcon(int percentage)
         {
-            Icon icon = null;
-
-            switch (Settings.Default.traytheme)
+            // 배터리 퍼센트가 유효 범위(0-100)를 벗어나면 0으로 처리
+            if (percentage < 0 || percentage > 100)
             {
-                case "white":
-                    icon = BattIconWhite.ResourceManager.GetObject("_" + percentage.ToString()) as Icon;
-                    break;
-                case "black":
-                    icon = BattIconBlack.ResourceManager.GetObject("_" + percentage.ToString()) as Icon;
-                    break;
-                default:
-                    icon = BattIconWhite.ResourceManager.GetObject("_" + percentage.ToString()) as Icon;
-                    break;
+                percentage = 0;
             }
+
+            // 실제 적용할 트레이 테마 가져오기 (auto인 경우 시스템 테마 감지)
+            string effectiveTrayTheme = WindowsInfoGetter.GetEffectiveTrayTheme(Settings.Default.traytheme);
+
+            Icon icon = effectiveTrayTheme switch
+            {
+                "white" => BattIconWhite.ResourceManager.GetObject("_" + percentage.ToString()) as Icon,
+                "black" => BattIconBlack.ResourceManager.GetObject("_" + percentage.ToString()) as Icon,
+                _ => BattIconWhite.ResourceManager.GetObject("_" + percentage.ToString()) as Icon
+            };
 
             trayControl.trayIcon.Icon = icon;
             trayControl.trayIcon.Visible = true;

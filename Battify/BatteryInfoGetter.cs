@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Media;
+﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Battify
 {
@@ -94,7 +88,7 @@ namespace Battify
             }
 
             // SystemSounds.Beep.Play();
-            
+
             // 레거시 API 업데이트
             CallNtPowerInformation(5, IntPtr.Zero, 0, out batteryState, (uint)Marshal.SizeOf(typeof(SystemBatteryState)));
         }
@@ -119,7 +113,7 @@ namespace Battify
             timer = new System.Timers.Timer(interval);
             timer.Elapsed += (sender, e) => Load();
             timer.Start();
-            
+
         }
 
         public static void StopChecking()

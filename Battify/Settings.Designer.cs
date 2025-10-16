@@ -58,5 +58,17 @@ namespace Battify {
                 this["mute"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CheckedTrayGuide {
+            get {
+                return ((bool)(this["CheckedTrayGuide"]));
+            }
+            set {
+                this["CheckedTrayGuide"] = value;
+            }
+        }
     }
 }

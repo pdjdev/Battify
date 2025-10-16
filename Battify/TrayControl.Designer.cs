@@ -48,7 +48,7 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.RenderMode = ToolStripRenderMode.System;
             contextMenuStrip1.ShowImageMargin = false;
-            contextMenuStrip1.Size = new Size(187, 216);
+            contextMenuStrip1.Size = new Size(186, 216);
             contextMenuStrip1.Opening += contextMenuStrip1_Opening;
             // 
             // closeAppToolStripMenuItem
@@ -59,7 +59,7 @@
             closeAppToolStripMenuItem.Margin = new Padding(0, 5, 0, 5);
             closeAppToolStripMenuItem.Name = "closeAppToolStripMenuItem";
             closeAppToolStripMenuItem.Padding = new Padding(0);
-            closeAppToolStripMenuItem.Size = new Size(186, 22);
+            closeAppToolStripMenuItem.Size = new Size(185, 22);
             closeAppToolStripMenuItem.Text = "Battify 종료";
             closeAppToolStripMenuItem.Click += closeAppToolStripMenuItem_Click;
             // 
@@ -71,7 +71,7 @@
             changeThemeToolStripMenuItem.Margin = new Padding(0, 5, 0, 5);
             changeThemeToolStripMenuItem.Name = "changeThemeToolStripMenuItem";
             changeThemeToolStripMenuItem.Padding = new Padding(0);
-            changeThemeToolStripMenuItem.Size = new Size(186, 22);
+            changeThemeToolStripMenuItem.Size = new Size(185, 22);
             changeThemeToolStripMenuItem.Text = "팝업 색상 변경";
             changeThemeToolStripMenuItem.Click += changeThemeToolStripMenuItem_Click;
             // 
@@ -83,7 +83,7 @@
             changeTrayToolStripMenuItem.Margin = new Padding(0, 5, 0, 5);
             changeTrayToolStripMenuItem.Name = "changeTrayToolStripMenuItem";
             changeTrayToolStripMenuItem.Padding = new Padding(0);
-            changeTrayToolStripMenuItem.Size = new Size(186, 22);
+            changeTrayToolStripMenuItem.Size = new Size(185, 22);
             changeTrayToolStripMenuItem.Text = "아이콘 색상 변경";
             changeTrayToolStripMenuItem.Click += changeTrayToolStripMenuItem_Click;
             // 
@@ -95,7 +95,7 @@
             muteToolStripMenuItem.Margin = new Padding(0, 5, 0, 5);
             muteToolStripMenuItem.Name = "muteToolStripMenuItem";
             muteToolStripMenuItem.Padding = new Padding(0);
-            muteToolStripMenuItem.Size = new Size(186, 22);
+            muteToolStripMenuItem.Size = new Size(185, 22);
             muteToolStripMenuItem.Text = "알림음 끄기";
             muteToolStripMenuItem.Click += muteToolStripMenuItem_Click;
             // 
@@ -107,8 +107,8 @@
             showBattInfoToolStripMenuItem.Margin = new Padding(0, 5, 0, 5);
             showBattInfoToolStripMenuItem.Name = "showBattInfoToolStripMenuItem";
             showBattInfoToolStripMenuItem.Padding = new Padding(0);
-            showBattInfoToolStripMenuItem.Size = new Size(186, 22);
-            showBattInfoToolStripMenuItem.Text = "배터리 정보";
+            showBattInfoToolStripMenuItem.Size = new Size(185, 22);
+            showBattInfoToolStripMenuItem.Text = "정보 (시작 설정)";
             showBattInfoToolStripMenuItem.Click += showBattInfoToolStripMenuItem_Click;
             // 
             // infoItemToolStripMenuItem
@@ -117,8 +117,8 @@
             infoItemToolStripMenuItem.Font = new Font("맑은 고딕", 7.8F, FontStyle.Italic, GraphicsUnit.Point, 0);
             infoItemToolStripMenuItem.ForeColor = Color.Silver;
             infoItemToolStripMenuItem.Name = "infoItemToolStripMenuItem";
-            infoItemToolStripMenuItem.Size = new Size(186, 24);
-            infoItemToolStripMenuItem.Text = "Battify (WPF-0.2.Alpha)";
+            infoItemToolStripMenuItem.Size = new Size(185, 24);
+            infoItemToolStripMenuItem.Text = "Battify (1.0.0)";
             // 
             // trayIcon
             // 
