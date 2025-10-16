@@ -1,22 +1,46 @@
+<img alt="battify_info_banner" src="https://github.com/user-attachments/assets/f5855e80-f63f-4460-83d8-fa41d451916b" />
+<div align="center">
+  
 # Battify
-<img src="preview_video.webp" width="800" height="450" />
-<img src="https://github.com/pdjdev/Battify/assets/24975076/8521640c-b050-4801-9557-583e5dc671b6" width="800" />
+  
+### Windows 트레이 아이콘 배터리 퍼센트 표시 프로그램  
+</div>
 
-Windows 트레이 아이콘 배터리 퍼센트 표시 프로그램  
+## 다운로드
 
-<sub>[구 WinForm 버전 리포지토리 링크](https://github.com/pdjdev/Battify-WinForm)</sub>
+### MS Store (권장)
 
-### [최신 exe 빌드 다운로드](https://github.com/pdjdev/Battify/releases/download/v0.2/Battify.exe)
+<a href="https://apps.microsoft.com/detail/9P4FMBB50JV9?referrer=appbadge&mode=direct">
+	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
+</a>
+
+### 포터블 파일
+
+#### [릴리즈 페이지](https://github.com/pdjdev/Battify/releases)
+
+
+
+## 주요 기능
+
+- 작업 표시줄에서 확인 가능한 배터리 퍼센트 아이콘
+- 충전 상태 변화시 알림 팝업
+- Windows 10/11의 라이트/다크 테마 맞춤 스타일
+- HiDPI 지원 GUI
 
 ## 요구 사양
 - Windows 10+ 이상 버전
 - .NET 8
 
-## 사용 방법
-- 프로그램을 실행합니다.
+## 스크린샷
 
-## 시작프로그램 설정
-### 방법 1
-- 프로그램 실행 후 설정 안내 메시지를 클릭합니다.
-### 방법 2
-- 트레이 아이콘 우클릭 > 배터리 정보 > 시작프로그램 설정 체크
+<img src="preview_video.webp" width="800" height="450" />
+
+<img width="800" height="450" alt="2" src="https://github.com/user-attachments/assets/62e1c43c-835c-4c94-b511-d5ad7d16eafa" />
+
+<img width="800" height="450" alt="3" src="https://github.com/user-attachments/assets/4e256541-161c-4dc1-a062-6f7aa51c89ba" />
+
+
+## 라이선스
+
+Made by PBJSoftware (박동준)  
+본 프로그램은 MIT License 하에 자유롭게 이용이 가능합니다.
