@@ -10,7 +10,7 @@
 
 ### MS Store (권장)
 
-<a href="https://apps.microsoft.com/detail/9P4FMBB50JV9?referrer=appbadge&mode=direct">
+<a href="https://apps.microsoft.com/detail/9P4FMBB50JV9?referrer=appbadge&mode=direct" target="_blank">
 	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
 </a>
 
