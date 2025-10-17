@@ -12,6 +12,9 @@ namespace Battify
             InitializeComponent();
             mainWindow = w;
 
+            // 커스텀 렌더러 적용
+            contextMenuStrip1.Renderer = new DarkMenuRenderer();
+
             var version = Assembly.GetExecutingAssembly().GetName().Version;
             if (version != null)
             {
@@ -57,7 +60,7 @@ namespace Battify
             {
                 // 먼저 현재 상태 확인 - 이미 활성화되어 있으면 다시 설정하지 않음
                 bool alreadyEnabled = await MsixStartupSetter.IsStartupEnabledAsync();
-                
+
                 if (alreadyEnabled)
                 {
                     // 이미 활성화되어 있으면 메시지만 표시
@@ -170,10 +173,19 @@ namespace Battify
             Settings.Default.Save();
         }
 
+        private void togglePopupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Settings.Default.nopopup = !Settings.Default.nopopup;
+            Settings.Default.Save();
+        }
+
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            // 음소거 메뉴 텍스트 업데이트
-            muteToolStripMenuItem.Text = "음소거 " + (Settings.Default.mute ? "해제" : "설정");
+            // 알림음 메뉴 텍스트 업데이트
+            muteToolStripMenuItem.Text = Settings.Default.mute ? "알림음 켜기" : "알림음 끄기";
+
+            // 팝업 메뉴 텍스트 업데이트
+            togglePopupToolStripMenuItem.Text = Settings.Default.nopopup ? "팝업 켜기" : "팝업 끄기";
 
             // 팝업 색상 메뉴 텍스트 업데이트
             string popupThemeText = Settings.Default.theme switch

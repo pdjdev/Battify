@@ -256,6 +256,12 @@ namespace Battify
         // 팝업 수행 (표시 후 5초 동안 대기 후 숨김)
         public async void PerformPopup()
         {
+            // nopopup이 true이면 팝업을 표시하지 않음
+            if (Settings.Default.nopopup)
+            {
+                return;
+            }
+
             cts.Cancel(); // 이전 작업 취소
             cts = new CancellationTokenSource(); // 새로운 CancellationTokenSource 생성
 
