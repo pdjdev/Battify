@@ -31,9 +31,12 @@
             components = new System.ComponentModel.Container();
             contextMenuStrip1 = new ContextMenuStrip(components);
             closeAppToolStripMenuItem = new ToolStripMenuItem();
-            changeThemeToolStripMenuItem = new ToolStripMenuItem();
+            appearanceToolStripMenuItem = new ToolStripMenuItem();
             changeTrayToolStripMenuItem = new ToolStripMenuItem();
+            changeThemeToolStripMenuItem = new ToolStripMenuItem();
+            notificationToolStripMenuItem = new ToolStripMenuItem();
             muteToolStripMenuItem = new ToolStripMenuItem();
+            togglePopupToolStripMenuItem = new ToolStripMenuItem();
             showBattInfoToolStripMenuItem = new ToolStripMenuItem();
             infoItemToolStripMenuItem = new ToolStripMenuItem();
             trayIcon = new NotifyIcon(components);
@@ -44,71 +47,103 @@
             // 
             contextMenuStrip1.BackColor = Color.FromArgb(30, 30, 30);
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { closeAppToolStripMenuItem, changeThemeToolStripMenuItem, changeTrayToolStripMenuItem, muteToolStripMenuItem, showBattInfoToolStripMenuItem, infoItemToolStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { closeAppToolStripMenuItem, appearanceToolStripMenuItem, notificationToolStripMenuItem, showBattInfoToolStripMenuItem, infoItemToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.RenderMode = ToolStripRenderMode.System;
             contextMenuStrip1.ShowImageMargin = false;
-            contextMenuStrip1.Size = new Size(186, 216);
+            contextMenuStrip1.Size = new Size(143, 184);
             contextMenuStrip1.Opening += contextMenuStrip1_Opening;
             // 
             // closeAppToolStripMenuItem
             // 
             closeAppToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            closeAppToolStripMenuItem.Font = new Font("맑은 고딕", 9F);
+            closeAppToolStripMenuItem.Font = new Font("맑은 고딕", 10F);
             closeAppToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
-            closeAppToolStripMenuItem.Margin = new Padding(0, 5, 0, 5);
             closeAppToolStripMenuItem.Name = "closeAppToolStripMenuItem";
-            closeAppToolStripMenuItem.Padding = new Padding(0);
-            closeAppToolStripMenuItem.Size = new Size(185, 22);
+            closeAppToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
+            closeAppToolStripMenuItem.Size = new Size(150, 38);
             closeAppToolStripMenuItem.Text = "Battify 종료";
             closeAppToolStripMenuItem.Click += closeAppToolStripMenuItem_Click;
             // 
-            // changeThemeToolStripMenuItem
+            // appearanceToolStripMenuItem
             // 
-            changeThemeToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            changeThemeToolStripMenuItem.Font = new Font("맑은 고딕", 9F);
-            changeThemeToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
-            changeThemeToolStripMenuItem.Margin = new Padding(0, 5, 0, 5);
-            changeThemeToolStripMenuItem.Name = "changeThemeToolStripMenuItem";
-            changeThemeToolStripMenuItem.Padding = new Padding(0);
-            changeThemeToolStripMenuItem.Size = new Size(185, 22);
-            changeThemeToolStripMenuItem.Text = "팝업 색상 변경";
-            changeThemeToolStripMenuItem.Click += changeThemeToolStripMenuItem_Click;
+            appearanceToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            appearanceToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { changeTrayToolStripMenuItem, changeThemeToolStripMenuItem });
+            appearanceToolStripMenuItem.Font = new Font("맑은 고딕", 10F);
+            appearanceToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
+            appearanceToolStripMenuItem.Name = "appearanceToolStripMenuItem";
+            appearanceToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
+            appearanceToolStripMenuItem.Size = new Size(150, 38);
+            appearanceToolStripMenuItem.Text = "모양";
             // 
             // changeTrayToolStripMenuItem
             // 
+            changeTrayToolStripMenuItem.BackColor = Color.FromArgb(30, 30, 30);
             changeTrayToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
             changeTrayToolStripMenuItem.Font = new Font("맑은 고딕", 9F);
             changeTrayToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
-            changeTrayToolStripMenuItem.Margin = new Padding(0, 5, 0, 5);
             changeTrayToolStripMenuItem.Name = "changeTrayToolStripMenuItem";
-            changeTrayToolStripMenuItem.Padding = new Padding(0);
-            changeTrayToolStripMenuItem.Size = new Size(185, 22);
-            changeTrayToolStripMenuItem.Text = "아이콘 색상 변경";
+            changeTrayToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
+            changeTrayToolStripMenuItem.Size = new Size(204, 36);
+            changeTrayToolStripMenuItem.Text = "아이콘 색: 자동";
             changeTrayToolStripMenuItem.Click += changeTrayToolStripMenuItem_Click;
+            // 
+            // changeThemeToolStripMenuItem
+            // 
+            changeThemeToolStripMenuItem.BackColor = Color.FromArgb(30, 30, 30);
+            changeThemeToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            changeThemeToolStripMenuItem.Font = new Font("맑은 고딕", 9F);
+            changeThemeToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
+            changeThemeToolStripMenuItem.Name = "changeThemeToolStripMenuItem";
+            changeThemeToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
+            changeThemeToolStripMenuItem.Size = new Size(204, 36);
+            changeThemeToolStripMenuItem.Text = "팝업 색: 자동";
+            changeThemeToolStripMenuItem.Click += changeThemeToolStripMenuItem_Click;
+            // 
+            // notificationToolStripMenuItem
+            // 
+            notificationToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            notificationToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { muteToolStripMenuItem, togglePopupToolStripMenuItem });
+            notificationToolStripMenuItem.Font = new Font("맑은 고딕", 10F);
+            notificationToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
+            notificationToolStripMenuItem.Name = "notificationToolStripMenuItem";
+            notificationToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
+            notificationToolStripMenuItem.Size = new Size(150, 38);
+            notificationToolStripMenuItem.Text = "알림";
             // 
             // muteToolStripMenuItem
             // 
+            muteToolStripMenuItem.BackColor = Color.FromArgb(30, 30, 30);
             muteToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
             muteToolStripMenuItem.Font = new Font("맑은 고딕", 9F);
             muteToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
-            muteToolStripMenuItem.Margin = new Padding(0, 5, 0, 5);
             muteToolStripMenuItem.Name = "muteToolStripMenuItem";
-            muteToolStripMenuItem.Padding = new Padding(0);
-            muteToolStripMenuItem.Size = new Size(185, 22);
+            muteToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
+            muteToolStripMenuItem.Size = new Size(181, 36);
             muteToolStripMenuItem.Text = "알림음 끄기";
             muteToolStripMenuItem.Click += muteToolStripMenuItem_Click;
+            // 
+            // togglePopupToolStripMenuItem
+            // 
+            togglePopupToolStripMenuItem.BackColor = Color.FromArgb(30, 30, 30);
+            togglePopupToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            togglePopupToolStripMenuItem.Font = new Font("맑은 고딕", 9F);
+            togglePopupToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
+            togglePopupToolStripMenuItem.Name = "togglePopupToolStripMenuItem";
+            togglePopupToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
+            togglePopupToolStripMenuItem.Size = new Size(181, 36);
+            togglePopupToolStripMenuItem.Text = "팝업 끄기";
+            togglePopupToolStripMenuItem.Click += togglePopupToolStripMenuItem_Click;
             // 
             // showBattInfoToolStripMenuItem
             // 
             showBattInfoToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            showBattInfoToolStripMenuItem.Font = new Font("맑은 고딕", 9F);
+            showBattInfoToolStripMenuItem.Font = new Font("맑은 고딕", 10F);
             showBattInfoToolStripMenuItem.ForeColor = Color.White;
-            showBattInfoToolStripMenuItem.Margin = new Padding(0, 5, 0, 5);
             showBattInfoToolStripMenuItem.Name = "showBattInfoToolStripMenuItem";
-            showBattInfoToolStripMenuItem.Padding = new Padding(0);
-            showBattInfoToolStripMenuItem.Size = new Size(185, 22);
-            showBattInfoToolStripMenuItem.Text = "정보 (시작 설정)";
+            showBattInfoToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
+            showBattInfoToolStripMenuItem.Size = new Size(150, 38);
+            showBattInfoToolStripMenuItem.Text = "정보 / 설정";
             showBattInfoToolStripMenuItem.Click += showBattInfoToolStripMenuItem_Click;
             // 
             // infoItemToolStripMenuItem
@@ -117,7 +152,7 @@
             infoItemToolStripMenuItem.Font = new Font("맑은 고딕", 7.8F, FontStyle.Italic, GraphicsUnit.Point, 0);
             infoItemToolStripMenuItem.ForeColor = Color.Silver;
             infoItemToolStripMenuItem.Name = "infoItemToolStripMenuItem";
-            infoItemToolStripMenuItem.Size = new Size(185, 24);
+            infoItemToolStripMenuItem.Size = new Size(142, 28);
             infoItemToolStripMenuItem.Text = "Battify (1.0.0)";
             // 
             // trayIcon
@@ -141,10 +176,13 @@
         public ContextMenuStrip contextMenuStrip1;
         public NotifyIcon trayIcon;
         private ToolStripMenuItem closeAppToolStripMenuItem;
+        private ToolStripMenuItem appearanceToolStripMenuItem;
         private ToolStripMenuItem changeThemeToolStripMenuItem;
         private ToolStripMenuItem changeTrayToolStripMenuItem;
+        private ToolStripMenuItem notificationToolStripMenuItem;
+        private ToolStripMenuItem muteToolStripMenuItem;
+        private ToolStripMenuItem togglePopupToolStripMenuItem;
         private ToolStripMenuItem showBattInfoToolStripMenuItem;
         private ToolStripMenuItem infoItemToolStripMenuItem;
-        private ToolStripMenuItem muteToolStripMenuItem;
     }
 }

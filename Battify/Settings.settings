@@ -2,14 +2,20 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Battify" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="theme" Type="System.String" Scope="User">
-      <Value Profile="(Default)">dark</Value>
-    </Setting>
-    <Setting Name="traytheme" Type="System.String" Scope="User">
-      <Value Profile="(Default)">white</Value>
-    </Setting>
     <Setting Name="mute" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CheckedTrayGuide" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="nopopup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="theme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">auto</Value>
+    </Setting>
+    <Setting Name="traytheme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">auto</Value>
     </Setting>
   </Settings>
 </SettingsFile>
