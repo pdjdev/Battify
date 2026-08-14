@@ -1,5 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -7,85 +112,222 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="App.AlreadyRunning" xml:space="preserve"><value>Battify はすでに起動しています。\nシステム トレイを確認してください。</value></data>
-  <data name="Window.BatteryInfo.Title" xml:space="preserve"><value>Battify 情報</value></data>
-  <data name="Window.TrayGuide.Title" xml:space="preserve"><value>Battify のインストールが完了しました</value></data>
-  <data name="Battery.AppVersion" xml:space="preserve"><value>Battify, v{0}</value></data>
-  <data name="Battery.SectionTitle" xml:space="preserve"><value>バッテリーとアプリの情報</value></data>
-  <data name="Common.Refresh" xml:space="preserve"><value>更新</value></data>
-  <data name="Common.Close" xml:space="preserve"><value>閉じる</value></data>
-  <data name="Common.Loading" xml:space="preserve"><value>読み込み中...</value></data>
-  <data name="Battery.StartupEnabled" xml:space="preserve"><value>スタートアップ時に実行する</value></data>
-  <data name="Battery.CheckForUpdates" xml:space="preserve"><value>更新プログラムを確認</value></data>
-  <data name="Battery.Store" xml:space="preserve"><value>（ストア）</value></data>
-  <data name="Battery.DeveloperSite" xml:space="preserve"><value>開発者サイト（pbj.kr）</value></data>
-  <data name="Battery.Voltage" xml:space="preserve"><value>電圧: {0} mV</value></data>
-  <data name="Battery.DesignVoltage" xml:space="preserve"><value>設計電圧: {0} mV</value></data>
-  <data name="Battery.ChargeRate" xml:space="preserve"><value>充電率: {0} mW</value></data>
-  <data name="Battery.DischargeRate" xml:space="preserve"><value>放電率: {0} mW</value></data>
-  <data name="Battery.DesignCapacity" xml:space="preserve"><value>設計容量: {0} mWh</value></data>
-  <data name="Battery.MaxCapacity" xml:space="preserve"><value>満充電容量: {0} mWh</value></data>
-  <data name="Battery.RemainingCapacity" xml:space="preserve"><value>残り容量（旧方式）: {0} ({1}) mWh</value></data>
-  <data name="Battery.ModelName" xml:space="preserve"><value>モデル: {0}</value></data>
-  <data name="Battery.TimeHoursMinutes" xml:space="preserve"><value>{0}時間 {1}分</value></data>
-  <data name="Battery.TimeMinutes" xml:space="preserve"><value>{0}分</value></data>
-  <data name="Battery.EstimatedChargeTime" xml:space="preserve"><value>推定充電時間: {0}</value></data>
-  <data name="Battery.LegacyEstimatedTime" xml:space="preserve"><value>推定時間（旧方式）: {0}</value></data>
-  <data name="Battery.ChargePercentage" xml:space="preserve"><value>充電率: {0:0.00}%</value></data>
-  <data name="Battery.WearRate" xml:space="preserve"><value>劣化度: {0:0.00}%</value></data>
-  <data name="Battery.PowerOnline" xml:space="preserve"><value>電源接続: {0}</value></data>
-  <data name="Battery.LoadFailed" xml:space="preserve"><value>バッテリー情報の読み込みに失敗しました: {0}</value></data>
-  <data name="Battery.Author" xml:space="preserve"><value>PBJSoftware（Dongjun Park）製作</value></data>
-  <data name="Battery.License" xml:space="preserve"><value>このプログラムは MIT ライセンスのもとで無償提供されています。</value></data>
-  <data name="Startup.ChangeFailed" xml:space="preserve"><value>スタートアップ設定を変更できませんでした。</value></data>
-  <data name="Startup.ChangeError" xml:space="preserve"><value>スタートアップ設定の変更中にエラーが発生しました。\n{0}</value></data>
-  <data name="Startup.StatusCheckFailed" xml:space="preserve"><value>MSIX のスタートアップ状態を確認できませんでした: {0}</value></data>
-  <data name="Startup.RegistryChangeFailed" xml:space="preserve"><value>スタートアップのレジストリ設定を変更できませんでした: {0}</value></data>
-  <data name="Startup.DisabledByUser" xml:space="preserve"><value>タスク マネージャーでスタートアップが無効にされています。［スタートアップ アプリ］タブで Battify を再度有効にしてください。</value></data>
-  <data name="Startup.DisabledByPolicy" xml:space="preserve"><value>組織または Windows ポリシーによりスタートアップが無効になっています。</value></data>
-  <data name="Startup.UnknownState" xml:space="preserve"><value>不明なスタートアップ状態: {0}</value></data>
-  <data name="Startup.MsixChangeFailed" xml:space="preserve"><value>MSIX のスタートアップ設定を変更できませんでした: {0}</value></data>
-  <data name="Startup.RegistryKeyFailed" xml:space="preserve"><value>スタートアップのレジストリ キーを開けませんでした。</value></data>
-  <data name="Tray.StartupCompleted" xml:space="preserve"><value>設定完了</value></data>
-  <data name="Tray.StartupCompletedMessage" xml:space="preserve"><value>スタートアップ アプリに追加しました。</value></data>
-  <data name="Tray.StartupFailed" xml:space="preserve"><value>設定に失敗しました</value></data>
-  <data name="Tray.StartupFailedMessage" xml:space="preserve"><value>スタートアップ アプリに追加できませんでした。</value></data>
-  <data name="Tray.StartupNotConfigured" xml:space="preserve"><value>スタートアップ未設定</value></data>
-  <data name="Tray.StartupSuggestion" xml:space="preserve"><value>ここをクリックして、Battify をスタートアップ時に実行します。</value></data>
-  <data name="Tray.Exit" xml:space="preserve"><value>Battify を終了</value></data>
-  <data name="Tray.Appearance" xml:space="preserve"><value>外観</value></data>
-  <data name="Tray.Notifications" xml:space="preserve"><value>通知</value></data>
-  <data name="Tray.InformationSettings" xml:space="preserve"><value>情報 / 設定</value></data>
-  <data name="Tray.EnableSound" xml:space="preserve"><value>サウンドを有効にする</value></data>
-  <data name="Tray.DisableSound" xml:space="preserve"><value>サウンドを無効にする</value></data>
-  <data name="Tray.EnablePopup" xml:space="preserve"><value>ポップアップを有効にする</value></data>
-  <data name="Tray.DisablePopup" xml:space="preserve"><value>ポップアップを無効にする</value></data>
-  <data name="Tray.PopupThemeAuto" xml:space="preserve"><value>ポップアップの色: 自動</value></data>
-  <data name="Tray.PopupThemeLight" xml:space="preserve"><value>ポップアップの色: ライト</value></data>
-  <data name="Tray.PopupThemeDark" xml:space="preserve"><value>ポップアップの色: ダーク</value></data>
-  <data name="Tray.IconThemeAuto" xml:space="preserve"><value>アイコンの色: 自動</value></data>
-  <data name="Tray.IconThemeLight" xml:space="preserve"><value>アイコンの色: ライト</value></data>
-  <data name="Tray.IconThemeDark" xml:space="preserve"><value>アイコンの色: ダーク</value></data>
-  <data name="Tray.NoBattery" xml:space="preserve"><value>バッテリーなし</value></data>
-  <data name="Tray.Charging" xml:space="preserve"><value>{0}%、充電中</value></data>
-  <data name="Tray.Remaining" xml:space="preserve"><value>残り {0}%</value></data>
-  <data name="Guide.Installed" xml:space="preserve"><value>Battify がインストールされました！</value></data>
-  <data name="Guide.Line1" xml:space="preserve"><value>バッテリー残量アイコンが表示されない場合は、</value></data>
-  <data name="Guide.Line2Prefix" xml:space="preserve"><value>残量表示（</value></data>
-  <data name="Guide.Line2Suffix" xml:space="preserve"><value>）アイコンをドラッグしてピン留めしてください。</value></data>
-  <data name="Guide.Confirm" xml:space="preserve"><value>了解</value></data>
-  <data name="Language.Label" xml:space="preserve"><value>言語</value></data>
-  <data name="Language.System" xml:space="preserve"><value>システムの既定</value></data>
-  <data name="Language.Korean" xml:space="preserve"><value>韓国語</value></data>
-  <data name="Language.English" xml:space="preserve"><value>英語</value></data>
-  <data name="Language.Japanese" xml:space="preserve"><value>日本語</value></data>
-  <data name="Language.RestartRequired" xml:space="preserve"><value>言語の変更は Battify を再起動すると適用されます。</value></data>
-  <data name="Language.RestartTitle" xml:space="preserve"><value>言語を変更しました</value></data>
+  <data name="App.AlreadyRunning" xml:space="preserve">
+    <value>Battify はすでに起動しています。\nシステム トレイを確認してください。</value>
+  </data>
+  <data name="Window.BatteryInfo.Title" xml:space="preserve">
+    <value>Battify 情報</value>
+  </data>
+  <data name="Window.TrayGuide.Title" xml:space="preserve">
+    <value>Battify のインストールが完了しました</value>
+  </data>
+  <data name="Battery.AppVersion" xml:space="preserve">
+    <value>バッティファイ、v{0}</value>
+  </data>
+  <data name="Battery.SectionTitle" xml:space="preserve">
+    <value>バッテリーとアプリの情報</value>
+  </data>
+  <data name="Common.Refresh" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="Common.Close" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>読み込み中...</value>
+  </data>
+  <data name="Battery.StartupEnabled" xml:space="preserve">
+    <value>スタートアップ時に実行する</value>
+  </data>
+  <data name="Battery.CheckForUpdates" xml:space="preserve">
+    <value>更新プログラムを確認</value>
+  </data>
+  <data name="Battery.Store" xml:space="preserve">
+    <value>（ストア）</value>
+  </data>
+  <data name="Battery.DeveloperSite" xml:space="preserve">
+    <value>開発者サイト（pbj.kr）</value>
+  </data>
+  <data name="Battery.Voltage" xml:space="preserve">
+    <value>電圧: {0} mV</value>
+  </data>
+  <data name="Battery.DesignVoltage" xml:space="preserve">
+    <value>設計電圧: {0} mV</value>
+  </data>
+  <data name="Battery.ChargeRate" xml:space="preserve">
+    <value>充電率: {0} mW</value>
+  </data>
+  <data name="Battery.DischargeRate" xml:space="preserve">
+    <value>放電率: {0} mW</value>
+  </data>
+  <data name="Battery.DesignCapacity" xml:space="preserve">
+    <value>設計容量: {0} mWh</value>
+  </data>
+  <data name="Battery.MaxCapacity" xml:space="preserve">
+    <value>満充電容量: {0} mWh</value>
+  </data>
+  <data name="Battery.RemainingCapacity" xml:space="preserve">
+    <value>残り容量（旧方式）: {0} ({1}) mWh</value>
+  </data>
+  <data name="Battery.ModelName" xml:space="preserve">
+    <value>モデル: {0}</value>
+  </data>
+  <data name="Battery.TimeHoursMinutes" xml:space="preserve">
+    <value>{0}時間 {1}分</value>
+  </data>
+  <data name="Battery.TimeMinutes" xml:space="preserve">
+    <value>{0}分</value>
+  </data>
+  <data name="Battery.EstimatedChargeTime" xml:space="preserve">
+    <value>推定充電時間: {0}</value>
+  </data>
+  <data name="Battery.LegacyEstimatedTime" xml:space="preserve">
+    <value>推定時間（旧方式）: {0}</value>
+  </data>
+  <data name="Battery.ChargePercentage" xml:space="preserve">
+    <value>充電率: {0:0.00}%</value>
+  </data>
+  <data name="Battery.WearRate" xml:space="preserve">
+    <value>劣化度: {0:0.00}%</value>
+  </data>
+  <data name="Battery.PowerOnline" xml:space="preserve">
+    <value>電源接続: {0}</value>
+  </data>
+  <data name="Battery.LoadFailed" xml:space="preserve">
+    <value>バッテリー情報の読み込みに失敗しました: {0}</value>
+  </data>
+  <data name="Battery.Author" xml:space="preserve">
+    <value>PBJSoftware（Dongjun Park）製作</value>
+  </data>
+  <data name="Battery.License" xml:space="preserve">
+    <value>このプログラムは MIT ライセンスのもとで無償提供されています。</value>
+  </data>
+  <data name="Startup.ChangeFailed" xml:space="preserve">
+    <value>スタートアップ設定を変更できませんでした。</value>
+  </data>
+  <data name="Startup.ChangeError" xml:space="preserve">
+    <value>スタートアップ設定の変更中にエラーが発生しました。\n{0}</value>
+  </data>
+  <data name="Startup.StatusCheckFailed" xml:space="preserve">
+    <value>MSIX のスタートアップ状態を確認できませんでした: {0}</value>
+  </data>
+  <data name="Startup.RegistryChangeFailed" xml:space="preserve">
+    <value>スタートアップのレジストリ設定を変更できませんでした: {0}</value>
+  </data>
+  <data name="Startup.DisabledByUser" xml:space="preserve">
+    <value>タスク マネージャーでスタートアップが無効にされています。［スタートアップ アプリ］タブで Battify を再度有効にしてください。</value>
+  </data>
+  <data name="Startup.DisabledByPolicy" xml:space="preserve">
+    <value>組織または Windows ポリシーによりスタートアップが無効になっています。</value>
+  </data>
+  <data name="Startup.UnknownState" xml:space="preserve">
+    <value>不明なスタートアップ状態: {0}</value>
+  </data>
+  <data name="Startup.MsixChangeFailed" xml:space="preserve">
+    <value>MSIX のスタートアップ設定を変更できませんでした: {0}</value>
+  </data>
+  <data name="Startup.RegistryKeyFailed" xml:space="preserve">
+    <value>スタートアップのレジストリ キーを開けませんでした。</value>
+  </data>
+  <data name="Tray.StartupCompleted" xml:space="preserve">
+    <value>設定完了</value>
+  </data>
+  <data name="Tray.StartupCompletedMessage" xml:space="preserve">
+    <value>スタートアップ アプリに追加しました。</value>
+  </data>
+  <data name="Tray.StartupFailed" xml:space="preserve">
+    <value>設定に失敗しました</value>
+  </data>
+  <data name="Tray.StartupFailedMessage" xml:space="preserve">
+    <value>スタートアップ アプリに追加できませんでした。</value>
+  </data>
+  <data name="Tray.StartupNotConfigured" xml:space="preserve">
+    <value>スタートアップ未設定</value>
+  </data>
+  <data name="Tray.StartupSuggestion" xml:space="preserve">
+    <value>ここをクリックして、Battify をスタートアップ時に実行します。</value>
+  </data>
+  <data name="Tray.Exit" xml:space="preserve">
+    <value>Battify を終了</value>
+  </data>
+  <data name="Tray.Appearance" xml:space="preserve">
+    <value>外観</value>
+  </data>
+  <data name="Tray.Notifications" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="Tray.InformationSettings" xml:space="preserve">
+    <value>情報 / 設定</value>
+  </data>
+  <data name="Tray.EnableSound" xml:space="preserve">
+    <value>サウンドを有効にする</value>
+  </data>
+  <data name="Tray.DisableSound" xml:space="preserve">
+    <value>サウンドを無効にする</value>
+  </data>
+  <data name="Tray.EnablePopup" xml:space="preserve">
+    <value>ポップアップを有効にする</value>
+  </data>
+  <data name="Tray.DisablePopup" xml:space="preserve">
+    <value>ポップアップを無効にする</value>
+  </data>
+  <data name="Tray.PopupThemeAuto" xml:space="preserve">
+    <value>ポップアップの色: 自動</value>
+  </data>
+  <data name="Tray.PopupThemeLight" xml:space="preserve">
+    <value>ポップアップの色: ライト</value>
+  </data>
+  <data name="Tray.PopupThemeDark" xml:space="preserve">
+    <value>ポップアップの色: ダーク</value>
+  </data>
+  <data name="Tray.IconThemeAuto" xml:space="preserve">
+    <value>アイコンの色: 自動</value>
+  </data>
+  <data name="Tray.IconThemeLight" xml:space="preserve">
+    <value>アイコンの色: ライト</value>
+  </data>
+  <data name="Tray.IconThemeDark" xml:space="preserve">
+    <value>アイコンの色: ダーク</value>
+  </data>
+  <data name="Tray.NoBattery" xml:space="preserve">
+    <value>バッテリーなし</value>
+  </data>
+  <data name="Tray.Charging" xml:space="preserve">
+    <value>{0}%、充電中</value>
+  </data>
+  <data name="Tray.Remaining" xml:space="preserve">
+    <value>残り {0}%</value>
+  </data>
+  <data name="Guide.Installed" xml:space="preserve">
+    <value>Battify がインストールされました！</value>
+  </data>
+  <data name="Guide.Line1" xml:space="preserve">
+    <value>バッテリー残量アイコンが表示されない場合は、</value>
+  </data>
+  <data name="Guide.Line2Prefix" xml:space="preserve">
+    <value>残量表示（</value>
+  </data>
+  <data name="Guide.Line2Suffix" xml:space="preserve">
+    <value>）アイコンをドラッグしてピン留めしてください。</value>
+  </data>
+  <data name="Guide.Confirm" xml:space="preserve">
+    <value>了解</value>
+  </data>
+  <data name="Language.Label" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="Language.System" xml:space="preserve">
+    <value>システムの既定</value>
+  </data>
+  <data name="Language.RestartRequired" xml:space="preserve">
+    <value>言語の変更は Battify を再起動すると適用されます。</value>
+  </data>
+  <data name="Language.RestartTitle" xml:space="preserve">
+    <value>言語を変更しました</value>
+  </data>
 </root>

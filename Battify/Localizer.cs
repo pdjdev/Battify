@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
 using System.Threading;
+using System.Windows.Data;
 using System.Windows.Markup;
 
 namespace Battify
@@ -18,6 +20,8 @@ namespace Battify
             .Select(name => name.Substring(ResourceBaseName.Length + 1, name.Length - ResourceBaseName.Length - ".resources".Length - 1))
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
         private static readonly Dictionary<string, ResourceManager> TranslationResourceManagers = new(StringComparer.OrdinalIgnoreCase);
+
+        public static event EventHandler? CultureChanged;
 
         public static string Get(string key)
         {
@@ -37,10 +41,14 @@ namespace Battify
 
         public static void ApplyConfiguredCulture()
         {
-            var language = Settings.Default.language;
+            ApplyCulture(Settings.Default.language);
+        }
+
+        public static void ApplyCulture(string language)
+        {
             if (language == "system")
             {
-                var systemLanguage = ResolveLanguage(CultureInfo.CurrentUICulture);
+                var systemLanguage = ResolveLanguage(CultureInfo.InstalledUICulture);
                 language = EmbeddedLanguages.Contains(systemLanguage)
                     ? systemLanguage
                     : "en";
@@ -53,6 +61,7 @@ namespace Battify
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
                 Thread.CurrentThread.CurrentCulture = culture;
                 Thread.CurrentThread.CurrentUICulture = culture;
+                CultureChanged?.Invoke(null, EventArgs.Empty);
             }
         }
 
@@ -91,6 +100,26 @@ namespace Battify
         public LocExtension(string key) => Key = key;
         public string Key { get; }
 
-        public override object ProvideValue(IServiceProvider serviceProvider) => Localizer.Get(Key);
+        public override object ProvideValue(IServiceProvider serviceProvider) =>
+            new System.Windows.Data.Binding($"[{Key}]")
+            {
+                Source = LocalizationBindingSource.Instance,
+                Mode = BindingMode.OneWay
+            }.ProvideValue(serviceProvider);
+    }
+
+    public sealed class LocalizationBindingSource : INotifyPropertyChanged
+    {
+        public static LocalizationBindingSource Instance { get; } = new();
+
+        private LocalizationBindingSource()
+        {
+            Localizer.CultureChanged += (_, _) =>
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Item[]"));
+        }
+
+        public string this[string key] => Localizer.Get(key);
+
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }

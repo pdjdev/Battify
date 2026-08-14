@@ -186,6 +186,16 @@ namespace Battify
             timer.Start();
         }
 
+        public void RefreshLocalizedTexts()
+        {
+            trayControl.RefreshLocalizedTexts();
+            trayControl.trayIcon.Text = percentage < 0 || percentage > 100
+                ? Localizer.Get("Tray.NoBattery")
+                : plugged
+                    ? Localizer.Format("Tray.Charging", percentage)
+                    : Localizer.Format("Tray.Remaining", percentage);
+        }
+
         // 팝업 표시
         public void ShowPopup()
         {

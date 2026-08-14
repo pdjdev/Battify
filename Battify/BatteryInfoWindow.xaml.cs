@@ -329,8 +329,10 @@ namespace Battify
 
             Settings.Default.language = language;
             Settings.Default.Save();
-            global::System.Windows.MessageBox.Show(Localizer.Get("Language.RestartRequired"),
-                Localizer.Get("Language.RestartTitle"), MessageBoxButton.OK, MessageBoxImage.Information);
+            Localizer.ApplyCulture(language);
+            AppVersionLabel.Content = Localizer.Format("Battery.AppVersion", assmblyVersion);
+            UpdateText();
+            ((MainWindow)System.Windows.Application.Current.MainWindow).RefreshLocalizedTexts();
         }
     }
 }

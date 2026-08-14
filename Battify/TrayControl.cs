@@ -216,5 +216,11 @@ namespace Battify
             notificationToolStripMenuItem.Text = Localizer.Get("Tray.Notifications");
             showBattInfoToolStripMenuItem.Text = Localizer.Get("Tray.InformationSettings");
         }
+
+        public void RefreshLocalizedTexts()
+        {
+            ApplyLocalizedTexts();
+            contextMenuStrip1_Opening(this, new System.ComponentModel.CancelEventArgs());
+        }
     }
 }
