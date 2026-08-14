@@ -1,0 +1,32 @@
+name: Build Battify
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: battify-build-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build app project
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore dependencies
+        run: msbuild Battify/Battify.csproj /restore
+
+      - name: Build app
+        run: msbuild Battify/Battify.csproj /m /p:Configuration=Release /p:Platform=AnyCPU /p:RestoreIgnoreFailedSources=true

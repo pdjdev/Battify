@@ -101,7 +101,7 @@
                 Content="확인했어요" 
                 Style="{StaticResource DarkButtonStyle}"
                 HorizontalAlignment="Right"
-                Width="190"
+                Width="160"
                 Height="41"
                 Click="ConfirmButton_Click"
                 Margin="0,15,20,20"/>
