@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:Battify"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!-- Set the inherited default font for all WPF windows and controls. -->
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="FontFamily" Value="Noto Sans KR" />
+        </Style>
     </Application.Resources>
 </Application>

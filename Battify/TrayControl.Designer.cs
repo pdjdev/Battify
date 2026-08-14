@@ -57,7 +57,7 @@
             // closeAppToolStripMenuItem
             // 
             closeAppToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            closeAppToolStripMenuItem.Font = new Font("맑은 고딕", 10F);
+            closeAppToolStripMenuItem.Font = new Font("Noto Sans KR", 10F);
             closeAppToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
             closeAppToolStripMenuItem.Name = "closeAppToolStripMenuItem";
             closeAppToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
@@ -69,7 +69,7 @@
             // 
             appearanceToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
             appearanceToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { changeTrayToolStripMenuItem, changeThemeToolStripMenuItem });
-            appearanceToolStripMenuItem.Font = new Font("맑은 고딕", 10F);
+            appearanceToolStripMenuItem.Font = new Font("Noto Sans KR", 10F);
             appearanceToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
             appearanceToolStripMenuItem.Name = "appearanceToolStripMenuItem";
             appearanceToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
@@ -80,7 +80,7 @@
             // 
             changeTrayToolStripMenuItem.BackColor = Color.FromArgb(30, 30, 30);
             changeTrayToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            changeTrayToolStripMenuItem.Font = new Font("맑은 고딕", 9F);
+            changeTrayToolStripMenuItem.Font = new Font("Noto Sans KR", 9F);
             changeTrayToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
             changeTrayToolStripMenuItem.Name = "changeTrayToolStripMenuItem";
             changeTrayToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
@@ -92,7 +92,7 @@
             // 
             changeThemeToolStripMenuItem.BackColor = Color.FromArgb(30, 30, 30);
             changeThemeToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            changeThemeToolStripMenuItem.Font = new Font("맑은 고딕", 9F);
+            changeThemeToolStripMenuItem.Font = new Font("Noto Sans KR", 9F);
             changeThemeToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
             changeThemeToolStripMenuItem.Name = "changeThemeToolStripMenuItem";
             changeThemeToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
@@ -104,7 +104,7 @@
             // 
             notificationToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
             notificationToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { muteToolStripMenuItem, togglePopupToolStripMenuItem });
-            notificationToolStripMenuItem.Font = new Font("맑은 고딕", 10F);
+            notificationToolStripMenuItem.Font = new Font("Noto Sans KR", 10F);
             notificationToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
             notificationToolStripMenuItem.Name = "notificationToolStripMenuItem";
             notificationToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
@@ -115,7 +115,7 @@
             // 
             muteToolStripMenuItem.BackColor = Color.FromArgb(30, 30, 30);
             muteToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            muteToolStripMenuItem.Font = new Font("맑은 고딕", 9F);
+            muteToolStripMenuItem.Font = new Font("Noto Sans KR", 9F);
             muteToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
             muteToolStripMenuItem.Name = "muteToolStripMenuItem";
             muteToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
@@ -127,7 +127,7 @@
             // 
             togglePopupToolStripMenuItem.BackColor = Color.FromArgb(30, 30, 30);
             togglePopupToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            togglePopupToolStripMenuItem.Font = new Font("맑은 고딕", 9F);
+            togglePopupToolStripMenuItem.Font = new Font("Noto Sans KR", 9F);
             togglePopupToolStripMenuItem.ForeColor = Color.FromArgb(224, 224, 224);
             togglePopupToolStripMenuItem.Name = "togglePopupToolStripMenuItem";
             togglePopupToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
@@ -138,7 +138,7 @@
             // showBattInfoToolStripMenuItem
             // 
             showBattInfoToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            showBattInfoToolStripMenuItem.Font = new Font("맑은 고딕", 10F);
+            showBattInfoToolStripMenuItem.Font = new Font("Noto Sans KR", 10F);
             showBattInfoToolStripMenuItem.ForeColor = Color.White;
             showBattInfoToolStripMenuItem.Name = "showBattInfoToolStripMenuItem";
             showBattInfoToolStripMenuItem.Padding = new Padding(4, 6, 4, 6);
@@ -149,7 +149,7 @@
             // infoItemToolStripMenuItem
             // 
             infoItemToolStripMenuItem.Enabled = false;
-            infoItemToolStripMenuItem.Font = new Font("맑은 고딕", 7.8F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            infoItemToolStripMenuItem.Font = new Font("Noto Sans KR", 7.8F, FontStyle.Italic, GraphicsUnit.Point, 0);
             infoItemToolStripMenuItem.ForeColor = Color.Silver;
             infoItemToolStripMenuItem.Name = "infoItemToolStripMenuItem";
             infoItemToolStripMenuItem.Size = new Size(142, 28);
