@@ -1,10 +1,8 @@
 using System.Diagnostics;
-using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
-using System.Windows.Media.Imaging;
 
 namespace Battify
 {
@@ -34,39 +32,8 @@ namespace Battify
                 assmblyVersion = "1.0.0";
             }
 
-            // 배너 이미지 로드
-            LoadBannerImage();
-
             // 창이 로드된 후 DWM 속성 설정
             this.Loaded += BatteryInfoWindow_Loaded;
-        }
-
-        private void LoadBannerImage()
-        {
-            try
-            {
-                // resx에서 이미지 바이트 배열 가져오기
-                byte[] imageBytes = ImageResources.battify_info_banner;
-                
-                if (imageBytes != null && imageBytes.Length > 0)
-                {
-                    using (var ms = new MemoryStream(imageBytes))
-                    {
-                        var bitmap = new BitmapImage();
-                        bitmap.BeginInit();
-                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                        bitmap.StreamSource = ms;
-                        bitmap.EndInit();
-                        bitmap.Freeze(); // UI 스레드 외부에서 사용 가능하도록
-                        
-                        BannerImage.Source = bitmap;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"배너 이미지 로드 실패: {ex.Message}");
-            }
         }
 
         private async void BatteryInfoWindow_Loaded(object sender, RoutedEventArgs e)
