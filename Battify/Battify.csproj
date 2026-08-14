@@ -2,7 +2,7 @@
 
   <PropertyGroup Label="Globals">
     <WebView2EnableCsWinRTProjection>False</WebView2EnableCsWinRTProjection>
-    <Platforms>x86</Platforms>
+    <Platforms>AnyCPU</Platforms>
     <Configurations>Debug;Release;Portable</Configurations>
   </PropertyGroup>
 
@@ -26,8 +26,7 @@
     <Copyright>PBJSoftware</Copyright>
     <Description>Easy-to-Use Battery Notify App for Windows Laptops</Description>
   
-	<PlatformTarget>x86</PlatformTarget>
-    <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+	<PlatformTarget>AnyCPU</PlatformTarget>
   
   </PropertyGroup>
 
