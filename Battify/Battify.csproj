@@ -78,7 +78,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DefAlertSound.resx</DependentUpon>
     </Compile>
-    <Compile Update="Settings.Designer.cs">
+    <Compile Update="Configuration\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -111,9 +111,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Settings.settings">
+    <None Update="Configuration\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Battify</CustomToolNamespace>
     </None>
   </ItemGroup>
 	

@@ -9,7 +9,7 @@ namespace Battify
     /// </summary>
     public partial class App : System.Windows.Application
     {
-        private static Mutex _mutex = null;
+        private static Mutex? _mutex;
         private const string MutexName = "Global\\Battify_SingleInstance_Mutex_9F8A3B2C";
 
         protected override void OnStartup(StartupEventArgs e)

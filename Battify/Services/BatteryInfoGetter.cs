@@ -99,10 +99,8 @@ namespace Battify
             {
                 return batteryInfo[parameter];
             }
-            else
-            {
-                return null;
-            }
+
+            return string.Empty;
         }
 
         public static void StartChecking(int interval = 5000)
@@ -118,9 +116,11 @@ namespace Battify
 
         public static void StopChecking()
         {
-            if (!isChecking) return;
+            if (!isChecking || timer is null) return;
 
             timer.Stop();
+            timer.Dispose();
+            timer = null;
             isChecking = false;
         }
 

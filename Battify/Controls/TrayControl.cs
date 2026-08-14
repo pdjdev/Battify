@@ -5,7 +5,6 @@ namespace Battify
     public partial class TrayControl : UserControl
     {
         public MainWindow mainWindow;
-        private bool balloonHandlerRegistered = false;
 
         public TrayControl(MainWindow w)
         {
@@ -29,7 +28,6 @@ namespace Battify
 
             // BalloonTipClicked 이벤트를 한 번만 등록
             trayIcon.BalloonTipClicked += TrayIcon_BalloonTipClicked;
-            balloonHandlerRegistered = true;
 
             // 3초간 비동기 대기후 시작프로그램 체크
             Task.Run(async () =>

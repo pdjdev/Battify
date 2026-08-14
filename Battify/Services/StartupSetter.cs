@@ -26,7 +26,7 @@ namespace Battify
             using var key = Registry.CurrentUser.OpenSubKey(RunKeyPath, writable: false);
             var value = key?.GetValue(ValueName) as string;
 
-            if (string.IsNullOrWhiteSpace(value))
+            if (value is null || string.IsNullOrWhiteSpace(value))
                 return false;
 
             return string.Equals(value.Trim(), QuoteExecutablePath(GetExecutablePath()), StringComparison.OrdinalIgnoreCase);
