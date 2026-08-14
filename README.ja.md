@@ -8,7 +8,7 @@
 
 # Battify
 
-### A Windows tray battery notifier with sleek popups
+### かっこいいポップアップとトレイアイコンで知らせるバッテリー通知アプリ
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [Deutsch](README.de.md)
 
@@ -16,31 +16,31 @@
 
 ---
 
-## Download
+## ダウンロード
 
-### Microsoft Store (Recommended)
+### Microsoft Store（推奨）
 
 <a href="https://apps.microsoft.com/detail/9P4FMBB50JV9?referrer=appbadge&mode=direct" target="_blank">
 	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
 </a>
 
-### Portable version
+### ポータブル版
 
-See the [Releases page](https://github.com/pdjdev/Battify/releases).
+[リリースページ](https://github.com/pdjdev/Battify/releases)をご覧ください。
 
-## Features
+## 主な機能
 
-- Battery percentage icon visible from the taskbar
-- Notification popups when the charging status changes
-- Light and dark theme styling matching Windows 10 and 11
-- HiDPI support
+- タスクバーから確認できるバッテリー残量アイコン
+- 充電状態が変化したときの通知ポップアップ
+- Windows 10および11のライト・ダークテーマに合わせたスタイル
+- HiDPI対応
 
-## Requirements
+## 必要環境
 
-- Windows 10 or later
-- .NET Framework 4.8, included with Windows 10 and 11
+- Windows 10以降
+- Windows 10および11に含まれる.NET Framework 4.8
 
-## Screenshots
+## スクリーンショット
 
 <img src="preview_video.webp" width="800" height="450" />
 
@@ -48,14 +48,12 @@ See the [Releases page](https://github.com/pdjdev/Battify/releases).
 
 <img width="800" height="450" alt="3" src="https://github.com/user-attachments/assets/4e256541-161c-4dc1-a062-6f7aa51c89ba" />
 
-## Localization
+## 多言語対応
 
-Battify currently provides English, Korean, Japanese, Simplified Chinese, and German translations. The application selects a language based on the Windows display language and falls back to English when a translation is unavailable.
+Battifyは英語、韓国語、日本語、中国語（簡体字）、ドイツ語に対応しています。Windowsの表示言語に合わせて自動的に言語を選択し、対応していない場合は英語を使用します。
 
-Translation resources are embedded in `Battify.exe`. To add another language, copy `Strings.en.resx` to `Strings.<language-code>.resx` and translate its values.
-
-## License
+## ライセンス
 
 Made by PBJSoftware (박동준)
 
-Battify is available under the MIT License.
+BattifyはMIT Licenseで利用できます。
