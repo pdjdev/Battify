@@ -455,9 +455,9 @@ namespace Battify
 
             Icon icon = effectiveTrayTheme switch
             {
-                "white" => BattIconWhite.ResourceManager.GetObject("_" + percentage.ToString()) as Icon,
-                "black" => BattIconBlack.ResourceManager.GetObject("_" + percentage.ToString()) as Icon,
-                _ => BattIconWhite.ResourceManager.GetObject("_" + percentage.ToString()) as Icon
+                "white" => BattIconWhite.ResourceManager.GetObject("_" + percentage.ToString()) as Icon ?? SystemIcons.Application,
+                "black" => BattIconBlack.ResourceManager.GetObject("_" + percentage.ToString()) as Icon ?? SystemIcons.Application,
+                _ => BattIconWhite.ResourceManager.GetObject("_" + percentage.ToString()) as Icon ?? SystemIcons.Application
             };
 
             trayControl.trayIcon.Icon = icon;
