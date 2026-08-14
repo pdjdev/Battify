@@ -1,7 +1,8 @@
 <Window x:Class="Battify.TrayGuideWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Battify 설치 완료" 
+        xmlns:local="clr-namespace:Battify"
+        Title="{local:Loc Window.TrayGuide.Title}"
         Height="460" 
         Width="460" 
         Background="#1B1B1B"
@@ -51,7 +52,7 @@
 
         <!-- 상단 텍스트 -->
         <TextBlock Grid.Row="0"
-                   Text="Battify가 설치되었습니다!" 
+                   Text="{local:Loc Guide.Installed}"
                    Foreground="White" 
                    FontSize="18" 
                    FontWeight="SemiBold"
@@ -86,11 +87,11 @@
                            FontSize="13"
                            LineHeight="20"
                            TextAlignment="Left">
-                    <Run Text="배터리 퍼센트 아이콘이 보이지 않는다면,"/>
+                    <Run Text="{local:Loc Guide.Line1}"/>
                     <LineBreak/>
-                    <Run Text="퍼센트 숫자("/>
+                    <Run Text="{local:Loc Guide.Line2Prefix}"/>
                     <Run x:Name="CurrentBatteryPercentText" Text="80" FontWeight="Bold" Foreground="#FFFFFF"/>
-                    <Run Text=") 아이콘을 밖으로 드래그하여 고정해 주세요."/>
+                    <Run Text="{local:Loc Guide.Line2Suffix}"/>
                 </TextBlock>
             </Grid>
         </Border>
@@ -98,7 +99,7 @@
         <!-- 하단 버튼 영역 -->
         <Button Grid.Row="2"
                 x:Name="ConfirmButton" 
-                Content="확인했어요" 
+                Content="{local:Loc Guide.Confirm}"
                 Style="{StaticResource DarkButtonStyle}"
                 HorizontalAlignment="Right"
                 Width="160"

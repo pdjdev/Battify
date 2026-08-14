@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App.AlreadyRunning" xml:space="preserve">
+    <value>Battify is already running.
+Check the system tray.</value>
+  </data>
+  <data name="Window.BatteryInfo.Title" xml:space="preserve">
+    <value>Battify information</value>
+  </data>
+  <data name="Window.TrayGuide.Title" xml:space="preserve">
+    <value>Battify installation complete</value>
+  </data>
+  <data name="Battery.AppVersion" xml:space="preserve">
+    <value>Battify, v{0}</value>
+  </data>
+  <data name="Battery.SectionTitle" xml:space="preserve">
+    <value>Battery &amp; app information</value>
+  </data>
+  <data name="Common.Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Common.Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="Battery.StartupEnabled" xml:space="preserve">
+    <value>Run at startup</value>
+  </data>
+  <data name="Battery.CheckForUpdates" xml:space="preserve">
+    <value>Check for updates</value>
+  </data>
+  <data name="Battery.Store" xml:space="preserve">
+    <value>(Store)</value>
+  </data>
+  <data name="Battery.DeveloperSite" xml:space="preserve">
+    <value>Developer site (pbj.kr)</value>
+  </data>
+  <data name="Battery.Voltage" xml:space="preserve">
+    <value>Voltage: {0} mV</value>
+  </data>
+  <data name="Battery.DesignVoltage" xml:space="preserve">
+    <value>Design voltage: {0} mV</value>
+  </data>
+  <data name="Battery.ChargeRate" xml:space="preserve">
+    <value>Charge rate: {0} mW</value>
+  </data>
+  <data name="Battery.DischargeRate" xml:space="preserve">
+    <value>Discharge rate: {0} mW</value>
+  </data>
+  <data name="Battery.DesignCapacity" xml:space="preserve">
+    <value>Design capacity: {0} mWh</value>
+  </data>
+  <data name="Battery.MaxCapacity" xml:space="preserve">
+    <value>Full charge capacity: {0} mWh</value>
+  </data>
+  <data name="Battery.RemainingCapacity" xml:space="preserve">
+    <value>Remaining capacity (legacy): {0} ({1}) mWh</value>
+  </data>
+  <data name="Battery.ModelName" xml:space="preserve">
+    <value>Model: {0}</value>
+  </data>
+  <data name="Battery.TimeHoursMinutes" xml:space="preserve">
+    <value>{0}h {1}m</value>
+  </data>
+  <data name="Battery.TimeMinutes" xml:space="preserve">
+    <value>{0}m</value>
+  </data>
+  <data name="Battery.EstimatedChargeTime" xml:space="preserve">
+    <value>Estimated charge time: {0}</value>
+  </data>
+  <data name="Battery.LegacyEstimatedTime" xml:space="preserve">
+    <value>Legacy estimated time: {0}</value>
+  </data>
+  <data name="Battery.ChargePercentage" xml:space="preserve">
+    <value>Charge percentage: {0:0.00}%</value>
+  </data>
+  <data name="Battery.WearRate" xml:space="preserve">
+    <value>Wear level: {0:0.00}%</value>
+  </data>
+  <data name="Battery.PowerOnline" xml:space="preserve">
+    <value>Power connected: {0}</value>
+  </data>
+  <data name="Battery.LoadFailed" xml:space="preserve">
+    <value>Failed to load battery information: {0}</value>
+  </data>
+  <data name="Battery.Author" xml:space="preserve">
+    <value>Made by PBJSoftware (Dongjun Park)</value>
+  </data>
+  <data name="Battery.License" xml:space="preserve">
+    <value>This program is freely available under the MIT License.</value>
+  </data>
+  <data name="Startup.ChangeFailed" xml:space="preserve">
+    <value>Could not change the startup setting.</value>
+  </data>
+  <data name="Startup.ChangeError" xml:space="preserve">
+    <value>An error occurred while changing the startup setting.
+{0}</value>
+  </data>
+  <data name="Startup.StatusCheckFailed" xml:space="preserve">
+    <value>Could not check MSIX startup status: {0}</value>
+  </data>
+  <data name="Startup.RegistryChangeFailed" xml:space="preserve">
+    <value>Could not change the startup registry setting: {0}</value>
+  </data>
+  <data name="Startup.DisabledByUser" xml:space="preserve">
+    <value>Startup was disabled by the user in Task Manager. Re-enable Battify in the Startup apps tab.</value>
+  </data>
+  <data name="Startup.DisabledByPolicy" xml:space="preserve">
+    <value>Startup is disabled by organization or Windows policy.</value>
+  </data>
+  <data name="Startup.UnknownState" xml:space="preserve">
+    <value>Unknown startup state: {0}</value>
+  </data>
+  <data name="Startup.MsixChangeFailed" xml:space="preserve">
+    <value>Could not change MSIX startup setting: {0}</value>
+  </data>
+  <data name="Startup.RegistryKeyFailed" xml:space="preserve">
+    <value>Could not open the startup registry key.</value>
+  </data>
+  <data name="Tray.StartupCompleted" xml:space="preserve">
+    <value>Setup complete</value>
+  </data>
+  <data name="Tray.StartupCompletedMessage" xml:space="preserve">
+    <value>Added to startup apps.</value>
+  </data>
+  <data name="Tray.StartupFailed" xml:space="preserve">
+    <value>Setup failed</value>
+  </data>
+  <data name="Tray.StartupFailedMessage" xml:space="preserve">
+    <value>Could not add to startup apps.</value>
+  </data>
+  <data name="Tray.StartupNotConfigured" xml:space="preserve">
+    <value>Startup not configured</value>
+  </data>
+  <data name="Tray.StartupSuggestion" xml:space="preserve">
+    <value>Click here to run Battify at startup.</value>
+  </data>
+  <data name="Tray.Exit" xml:space="preserve">
+    <value>Exit Battify</value>
+  </data>
+  <data name="Tray.Appearance" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="Tray.Notifications" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="Tray.InformationSettings" xml:space="preserve">
+    <value>Info / Settings</value>
+  </data>
+  <data name="Tray.EnableSound" xml:space="preserve">
+    <value>Enable sound</value>
+  </data>
+  <data name="Tray.DisableSound" xml:space="preserve">
+    <value>Disable sound</value>
+  </data>
+  <data name="Tray.EnablePopup" xml:space="preserve">
+    <value>Enable popup</value>
+  </data>
+  <data name="Tray.DisablePopup" xml:space="preserve">
+    <value>Disable popup</value>
+  </data>
+  <data name="Tray.PopupThemeAuto" xml:space="preserve">
+    <value>Popup color: Auto</value>
+  </data>
+  <data name="Tray.PopupThemeLight" xml:space="preserve">
+    <value>Popup color: Light</value>
+  </data>
+  <data name="Tray.PopupThemeDark" xml:space="preserve">
+    <value>Popup color: Dark</value>
+  </data>
+  <data name="Tray.IconThemeAuto" xml:space="preserve">
+    <value>Icon color: Auto</value>
+  </data>
+  <data name="Tray.IconThemeLight" xml:space="preserve">
+    <value>Icon color: Light</value>
+  </data>
+  <data name="Tray.IconThemeDark" xml:space="preserve">
+    <value>Icon color: Dark</value>
+  </data>
+  <data name="Tray.NoBattery" xml:space="preserve">
+    <value>No battery</value>
+  </data>
+  <data name="Tray.Charging" xml:space="preserve">
+    <value>{0}%, charging</value>
+  </data>
+  <data name="Tray.Remaining" xml:space="preserve">
+    <value>{0}% remaining</value>
+  </data>
+  <data name="Guide.Installed" xml:space="preserve">
+    <value>Battify has been installed!</value>
+  </data>
+  <data name="Guide.Line1" xml:space="preserve">
+    <value>If the battery percentage icon is not visible,</value>
+  </data>
+  <data name="Guide.Line2Prefix" xml:space="preserve">
+    <value>drag the percentage (</value>
+  </data>
+  <data name="Guide.Line2Suffix" xml:space="preserve">
+    <value>) icon out to pin it.</value>
+  </data>
+  <data name="Guide.Confirm" xml:space="preserve">
+    <value>Got it</value>
+  </data>
+  <data name="Language.Label" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Language.System" xml:space="preserve">
+    <value>System default</value>
+  </data>
+  <data name="Language.Korean" xml:space="preserve">
+    <value>한국어</value>
+  </data>
+  <data name="Language.English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Language.RestartRequired" xml:space="preserve">
+    <value>The language change will apply after restarting Battify.</value>
+  </data>
+  <data name="Language.RestartTitle" xml:space="preserve">
+    <value>Language changed</value>
+  </data>
+</root>

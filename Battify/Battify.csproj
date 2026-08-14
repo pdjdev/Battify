@@ -86,6 +86,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Keep English strings in Battify.exe instead of generating en\Battify.resources.dll. -->
+    <EmbeddedResource Update="Strings.en.resx">
+      <WithCulture>false</WithCulture>
+      <LogicalName>Battify.Strings.en.resources</LogicalName>
+    </EmbeddedResource>
     <EmbeddedResource Update="AppIcon.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppIcon.Designer.cs</LastGenOutput>

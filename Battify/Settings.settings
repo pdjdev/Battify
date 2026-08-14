@@ -17,5 +17,8 @@
     <Setting Name="traytheme" Type="System.String" Scope="User">
       <Value Profile="(Default)">auto</Value>
     </Setting>
+    <Setting Name="language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">system</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

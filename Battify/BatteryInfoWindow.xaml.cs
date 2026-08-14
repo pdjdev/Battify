@@ -34,6 +34,15 @@ namespace Battify
 
             // 창이 로드된 후 DWM 속성 설정
             this.Loaded += BatteryInfoWindow_Loaded;
+
+            foreach (var item in LanguageSelector.Items.OfType<System.Windows.Controls.ComboBoxItem>())
+            {
+                if ((string)item.Tag == Settings.Default.language)
+                {
+                    LanguageSelector.SelectedItem = item;
+                    break;
+                }
+            }
         }
 
         private async void BatteryInfoWindow_Loaded(object sender, RoutedEventArgs e)
@@ -47,12 +56,12 @@ namespace Battify
             this.Top = workArea.Bottom - this.Height;
 
             // 버전 정보 갱신해서 표시
-            AppVersionLabel.Content = "배티파이, v" + assmblyVersion;
+            AppVersionLabel.Content = Localizer.Format("Battery.AppVersion", assmblyVersion);
 
 
             // StatusTextBox를 비활성화하고 로딩 메시지 표시
             StatusTextBox.IsEnabled = false;
-            StatusTextBox.Text = "로드 중...";
+            StatusTextBox.Text = Localizer.Get("Common.Loading");
 
             // 시작프로그램 설정 확인 및 디버깅 정보 출력
             SetStartupChk.IsChecked = await MsixStartupSetter.IsStartupEnabledAsync();
@@ -99,7 +108,7 @@ namespace Battify
         {
             // 업데이트 버튼도 비동기로 처리
             StatusTextBox.IsEnabled = false;
-            StatusTextBox.Text = "로드 중...";
+            StatusTextBox.Text = Localizer.Get("Common.Loading");
 
             await LoadBatteryInfoAsync();
         }
@@ -113,36 +122,36 @@ namespace Battify
 
                 // voltage
                 string voltage = BatteryInfoGetter.Get("Voltage");
-                resultString += "전압: " + voltage + " mV" + Environment.NewLine;
+                resultString += Localizer.Format("Battery.Voltage", voltage) + Environment.NewLine;
 
                 // DesignVoltage
                 string designVoltage = BatteryInfoGetter.Get("DesignVoltage");
-                resultString += "지정 전압: " + designVoltage + " mV" + Environment.NewLine;
+                resultString += Localizer.Format("Battery.DesignVoltage", designVoltage) + Environment.NewLine;
 
                 // ChargeRate
                 string chargeRate = BatteryInfoGetter.Get("ChargeRate");
-                resultString += "충전율: " + chargeRate + " mW" + Environment.NewLine;
+                resultString += Localizer.Format("Battery.ChargeRate", chargeRate) + Environment.NewLine;
 
                 // DischargeRate
                 string dischargeRate = BatteryInfoGetter.Get("DischargeRate");
-                resultString += "방전율: " + dischargeRate + " mW" + Environment.NewLine;
+                resultString += Localizer.Format("Battery.DischargeRate", dischargeRate) + Environment.NewLine;
 
                 // DesignCapacity
                 string designCapacity = BatteryInfoGetter.Get("DesignCapacity");
-                resultString += "지정 용량: " + designCapacity + " mWh" + Environment.NewLine;
+                resultString += Localizer.Format("Battery.DesignCapacity", designCapacity) + Environment.NewLine;
 
                 // MaxCapacity
                 uint maxCapacity = BatteryInfoGetter.MaxCapacity();
-                resultString += "완충 용량: " + maxCapacity + " mWh" + Environment.NewLine;
+                resultString += Localizer.Format("Battery.MaxCapacity", maxCapacity) + Environment.NewLine;
 
                 // RemainingCapacity
                 string remainingCapacity = BatteryInfoGetter.Get("RemainingCapacity");
                 uint remainingCapacityUint = BatteryInfoGetter.RemainingCapacity();
-                resultString += "남은 용량 (레거시): " + remainingCapacity + "(" + remainingCapacityUint.ToString() + ") mWh" + Environment.NewLine;
+                resultString += Localizer.Format("Battery.RemainingCapacity", remainingCapacity, remainingCapacityUint) + Environment.NewLine;
 
                 // Name
                 string name = BatteryInfoGetter.Get("Name");
-                resultString += "모델명: " + name + Environment.NewLine;
+                resultString += Localizer.Format("Battery.ModelName", name) + Environment.NewLine;
 
                 // EstimatedChargeRemaining
                 string estimatedChargeRemaining = BatteryInfoGetter.Get("EstimatedChargeRemaining");
@@ -151,19 +160,14 @@ namespace Battify
                 {
                     int hours = estimatedChargeRemainingInt / 3600;
                     int minutes = estimatedChargeRemainingInt % 3600 / 60;
-                    estimatedChargeRemaining = "";
-
-                    if (hours > 0)
-                    {
-                        estimatedChargeRemaining = hours + "시간 ";
-                    }
-
-                    estimatedChargeRemaining += minutes + "분";
+                    estimatedChargeRemaining = hours > 0
+                        ? Localizer.Format("Battery.TimeHoursMinutes", hours, minutes)
+                        : Localizer.Format("Battery.TimeMinutes", minutes);
                 }
 
-                resultString += "충전 예상 시간: " + estimatedChargeRemaining + Environment.NewLine;
+                resultString += Localizer.Format("Battery.EstimatedChargeTime", estimatedChargeRemaining) + Environment.NewLine;
 
-                resultString += "레거시 예상 시간: " + BatteryInfoGetter.EstimatedTime().ToString() + Environment.NewLine;
+                resultString += Localizer.Format("Battery.LegacyEstimatedTime", BatteryInfoGetter.EstimatedTime()) + Environment.NewLine;
 
                 // 계산
 
@@ -172,25 +176,25 @@ namespace Battify
                 {
                     // 충전 퍼센트 계산
                     double percentage = (double)remainingCapacityInt / maxCapacity * 100;
-                    resultString += "충전 퍼센트: " + percentage.ToString("0.00") + "%" + Environment.NewLine;
+                    resultString += Localizer.Format("Battery.ChargePercentage", percentage) + Environment.NewLine;
 
                     // 지정 용량이 숫자로 변환 가능한 경우
                     if (int.TryParse(designCapacity, out int designCapacityInt))
                     {
                         // 웨어율 계산
                         double wear = (double)(designCapacityInt - maxCapacity) / designCapacityInt * 100;
-                        resultString += "웨어율: " + wear.ToString("0.00") + "%" + Environment.NewLine;
+                        resultString += Localizer.Format("Battery.WearRate", wear) + Environment.NewLine;
                     }
                 }
 
                 // PowerOnline
                 string powerOnline = BatteryInfoGetter.Get("PowerOnline");
-                resultString += "전원 연결: " + powerOnline;
+                resultString += Localizer.Format("Battery.PowerOnline", powerOnline);
 
             }
             catch (Exception ex)
             {
-                resultString = "배터리 정보 로드 실패: " + ex.Message;
+                resultString = Localizer.Format("Battery.LoadFailed", ex.Message);
             }
 
             // 이제 프로그램 정보 덧대기
@@ -198,10 +202,10 @@ namespace Battify
             resultString += Environment.NewLine + Environment.NewLine;
 
             // 프로그램 정보
-            resultString += "Battify v" + assmblyVersion + Environment.NewLine;
-            resultString += "Made by PBJSoftware (박동준)" + Environment.NewLine;
+            resultString += Localizer.Format("Battery.AppVersion", assmblyVersion) + Environment.NewLine;
+            resultString += Localizer.Get("Battery.Author") + Environment.NewLine;
             resultString += "Source: https://github.com/pdjdev/Battify" + Environment.NewLine;
-            resultString += "본 프로그램은 MIT License 하에 자유롭게 이용이 가능합니다." + Environment.NewLine;
+            resultString += Localizer.Get("Battery.License") + Environment.NewLine;
 
             // StatusTextBox 출력
             StatusTextBox.Text = resultString;
@@ -270,7 +274,7 @@ namespace Battify
                 {
                     SetStartupCheckbox(!isChecked);
                     var errorMessage = MsixStartupSetter.LastError
-                        ?? "시작 프로그램 설정을 변경하지 못했습니다.";
+                        ?? Localizer.Get("Startup.ChangeFailed");
 
                     global::System.Windows.MessageBox.Show(errorMessage, "Battify", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
@@ -284,7 +288,7 @@ namespace Battify
                 SetStartupCheckbox(!isChecked);
                 Debug.WriteLine($"SetStartupChk 변경 예외: {ex}");
 
-                global::System.Windows.MessageBox.Show("시작 프로그램 설정 중 오류가 발생했습니다." + Environment.NewLine + ex.Message,
+                global::System.Windows.MessageBox.Show(Localizer.Format("Startup.ChangeError", ex.Message),
                                 "Battify", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -300,6 +304,17 @@ namespace Battify
             {
                 isUpdatingStartupSetting = false;
             }
+        }
+
+        private void LanguageSelector_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (LanguageSelector.SelectedValue is not string language || language == Settings.Default.language)
+                return;
+
+            Settings.Default.language = language;
+            Settings.Default.Save();
+            global::System.Windows.MessageBox.Show(Localizer.Get("Language.RestartRequired"),
+                Localizer.Get("Language.RestartTitle"), MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

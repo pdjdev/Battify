@@ -172,20 +172,13 @@ namespace Battify
                 // 트레이 아이콘 툴팁 텍스트 설정
                 if (percentage < 0 || percentage > 100)
                 {
-                    trayControl.trayIcon.Text = "배터리 없음";
+                    trayControl.trayIcon.Text = Localizer.Get("Tray.NoBattery");
                 }
                 else
                 {
-                    trayControl.trayIcon.Text = percentage.ToString() + "%";
-
-                    if (plugged)
-                    {
-                        trayControl.trayIcon.Text += ", 충전중";
-                    }
-                    else
-                    {
-                        trayControl.trayIcon.Text += " 남음";
-                    }
+                    trayControl.trayIcon.Text = plugged
+                        ? Localizer.Format("Tray.Charging", percentage)
+                        : Localizer.Format("Tray.Remaining", percentage);
                 }
             };
 
