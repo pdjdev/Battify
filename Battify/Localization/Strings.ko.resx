@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
-  <resheader name="version"><value>2.0</value></resheader>
-  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
-  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
   <data name="App.AlreadyRunning" xml:space="preserve"><value>Battify가 이미 실행 중입니다.&#xA;시스템 트레이를 확인해주세요.</value></data>
   <data name="Window.BatteryInfo.Title" xml:space="preserve"><value>Battify 정보</value></data>
   <data name="Window.TrayGuide.Title" xml:space="preserve"><value>Battify 설치 완료</value></data>

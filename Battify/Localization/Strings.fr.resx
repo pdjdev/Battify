@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="App.AlreadyRunning" xml:space="preserve"><value>Battify est déjà en cours d’exécution.&#xA;Vérifiez la zone de notification.</value></data>
+  <data name="Window.BatteryInfo.Title" xml:space="preserve"><value>Informations sur Battify</value></data>
+  <data name="Window.TrayGuide.Title" xml:space="preserve"><value>Installation de Battify terminée</value></data>
+  <data name="Battery.AppVersion" xml:space="preserve"><value>Battify, v{0}</value></data>
+  <data name="Battery.SectionTitle" xml:space="preserve"><value>Informations sur la batterie et l’application</value></data>
+  <data name="Common.Refresh" xml:space="preserve"><value>Actualiser</value></data>
+  <data name="Common.Close" xml:space="preserve"><value>Fermer</value></data>
+  <data name="Common.Loading" xml:space="preserve"><value>Chargement...</value></data>
+  <data name="Battery.StartupEnabled" xml:space="preserve"><value>Exécuter au démarrage</value></data>
+  <data name="Battery.CheckForUpdates" xml:space="preserve"><value>Rechercher des mises à jour</value></data>
+  <data name="Battery.Store" xml:space="preserve"><value>(Store)</value></data>
+  <data name="Battery.DeveloperSite" xml:space="preserve"><value>Site du développeur (pbj.kr)</value></data>
+  <data name="Battery.Voltage" xml:space="preserve"><value>Tension : {0} mV</value></data>
+  <data name="Battery.DesignVoltage" xml:space="preserve"><value>Tension nominale : {0} mV</value></data>
+  <data name="Battery.ChargeRate" xml:space="preserve"><value>Vitesse de charge : {0} mW</value></data>
+  <data name="Battery.DischargeRate" xml:space="preserve"><value>Vitesse de décharge : {0} mW</value></data>
+  <data name="Battery.DesignCapacity" xml:space="preserve"><value>Capacité nominale : {0} mWh</value></data>
+  <data name="Battery.MaxCapacity" xml:space="preserve"><value>Capacité à pleine charge : {0} mWh</value></data>
+  <data name="Battery.RemainingCapacity" xml:space="preserve"><value>Capacité restante (historique) : {0} ({1}) mWh</value></data>
+  <data name="Battery.ModelName" xml:space="preserve"><value>Modèle : {0}</value></data>
+  <data name="Battery.TimeHoursMinutes" xml:space="preserve"><value>{0} h {1} min</value></data>
+  <data name="Battery.TimeMinutes" xml:space="preserve"><value>{0} min</value></data>
+  <data name="Battery.EstimatedChargeTime" xml:space="preserve"><value>Temps de charge estimé : {0}</value></data>
+  <data name="Battery.LegacyEstimatedTime" xml:space="preserve"><value>Temps estimé historique : {0}</value></data>
+  <data name="Battery.ChargePercentage" xml:space="preserve"><value>Pourcentage de charge : {0:0.00}%</value></data>
+  <data name="Battery.WearRate" xml:space="preserve"><value>Niveau d’usure : {0:0.00}%</value></data>
+  <data name="Battery.PowerOnline" xml:space="preserve"><value>Alimentation connectée : {0}</value></data>
+  <data name="Battery.LoadFailed" xml:space="preserve"><value>Échec du chargement des informations sur la batterie : {0}</value></data>
+  <data name="Battery.Author" xml:space="preserve"><value>Créé par PBJSoftware (Dongjun Park)</value></data>
+  <data name="Battery.License" xml:space="preserve"><value>Ce programme est disponible gratuitement sous licence MIT.</value></data>
+  <data name="Startup.ChangeFailed" xml:space="preserve"><value>Impossible de modifier le paramètre de démarrage.</value></data>
+  <data name="Startup.ChangeError" xml:space="preserve"><value>Une erreur s’est produite lors de la modification du paramètre de démarrage.&#xA;{0}</value></data>
+  <data name="Startup.StatusCheckFailed" xml:space="preserve"><value>Impossible de vérifier l’état de démarrage MSIX : {0}</value></data>
+  <data name="Startup.RegistryChangeFailed" xml:space="preserve"><value>Impossible de modifier le paramètre de démarrage dans le Registre : {0}</value></data>
+  <data name="Startup.DisabledByUser" xml:space="preserve"><value>Le démarrage a été désactivé par l’utilisateur dans le Gestionnaire des tâches. Réactivez Battify dans l’onglet Applications de démarrage.</value></data>
+  <data name="Startup.DisabledByPolicy" xml:space="preserve"><value>Le démarrage est désactivé par l’organisation ou une stratégie Windows.</value></data>
+  <data name="Startup.UnknownState" xml:space="preserve"><value>État de démarrage inconnu : {0}</value></data>
+  <data name="Startup.MsixChangeFailed" xml:space="preserve"><value>Impossible de modifier le paramètre de démarrage MSIX : {0}</value></data>
+  <data name="Startup.RegistryKeyFailed" xml:space="preserve"><value>Impossible d’ouvrir la clé de Registre de démarrage.</value></data>
+  <data name="Tray.StartupCompleted" xml:space="preserve"><value>Configuration terminée</value></data>
+  <data name="Tray.StartupCompletedMessage" xml:space="preserve"><value>Ajouté aux applications de démarrage.</value></data>
+  <data name="Tray.StartupFailed" xml:space="preserve"><value>Échec de la configuration</value></data>
+  <data name="Tray.StartupFailedMessage" xml:space="preserve"><value>Impossible d’ajouter aux applications de démarrage.</value></data>
+  <data name="Tray.StartupNotConfigured" xml:space="preserve"><value>Démarrage non configuré</value></data>
+  <data name="Tray.StartupSuggestion" xml:space="preserve"><value>Cliquez ici pour exécuter Battify au démarrage.</value></data>
+  <data name="Tray.Exit" xml:space="preserve"><value>Quitter Battify</value></data>
+  <data name="Tray.Appearance" xml:space="preserve"><value>Apparence</value></data>
+  <data name="Tray.Notifications" xml:space="preserve"><value>Notifications</value></data>
+  <data name="Tray.InformationSettings" xml:space="preserve"><value>Informations / Paramètres</value></data>
+  <data name="Tray.EnableSound" xml:space="preserve"><value>Activer le son</value></data>
+  <data name="Tray.DisableSound" xml:space="preserve"><value>Désactiver le son</value></data>
+  <data name="Tray.EnablePopup" xml:space="preserve"><value>Activer la fenêtre contextuelle</value></data>
+  <data name="Tray.DisablePopup" xml:space="preserve"><value>Désactiver la fenêtre contextuelle</value></data>
+  <data name="Tray.PopupThemeAuto" xml:space="preserve"><value>Couleur de la fenêtre : Automatique</value></data>
+  <data name="Tray.PopupThemeLight" xml:space="preserve"><value>Couleur de la fenêtre : Claire</value></data>
+  <data name="Tray.PopupThemeDark" xml:space="preserve"><value>Couleur de la fenêtre : Sombre</value></data>
+  <data name="Tray.IconThemeAuto" xml:space="preserve"><value>Couleur de l’icône : Automatique</value></data>
+  <data name="Tray.IconThemeLight" xml:space="preserve"><value>Couleur de l’icône : Claire</value></data>
+  <data name="Tray.IconThemeDark" xml:space="preserve"><value>Couleur de l’icône : Sombre</value></data>
+  <data name="Tray.NoBattery" xml:space="preserve"><value>Aucune batterie</value></data>
+  <data name="Tray.Charging" xml:space="preserve"><value>{0} %, en charge</value></data>
+  <data name="Tray.Remaining" xml:space="preserve"><value>{0} % restants</value></data>
+  <data name="Guide.Installed" xml:space="preserve"><value>Battify a été installé !</value></data>
+  <data name="Guide.Line1" xml:space="preserve"><value>Si l’icône de pourcentage de batterie n’est pas visible,</value></data>
+  <data name="Guide.Line2Prefix" xml:space="preserve"><value>faites glisser l’icône de pourcentage (</value></data>
+  <data name="Guide.Line2Suffix" xml:space="preserve"><value>) vers l’extérieur pour l’épingler.</value></data>
+  <data name="Guide.Confirm" xml:space="preserve"><value>Compris</value></data>
+  <data name="Language.Label" xml:space="preserve"><value>Langue</value></data>
+  <data name="Language.System" xml:space="preserve"><value>Par défaut du système</value></data>
+  <data name="Language.Korean" xml:space="preserve"><value>Coréen</value></data>
+  <data name="Language.English" xml:space="preserve"><value>Anglais</value></data>
+  <data name="Language.Japanese" xml:space="preserve"><value>Japonais</value></data>
+  <data name="Language.RestartRequired" xml:space="preserve"><value>Le changement de langue sera appliqué après le redémarrage de Battify.</value></data>
+  <data name="Language.RestartTitle" xml:space="preserve"><value>Langue modifiée</value></data>
+</root>

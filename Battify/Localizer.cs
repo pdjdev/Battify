@@ -21,7 +21,7 @@ namespace Battify
 
         public static string Get(string key)
         {
-            var language = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+            var language = ResolveLanguage(CultureInfo.CurrentUICulture);
             var resourceManager = GetTranslationResourceManager(language);
 
             // Translations are embedded in the main assembly, so they are read
@@ -40,7 +40,7 @@ namespace Battify
             var language = Settings.Default.language;
             if (language == "system")
             {
-                var systemLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+                var systemLanguage = ResolveLanguage(CultureInfo.CurrentUICulture);
                 language = EmbeddedLanguages.Contains(systemLanguage)
                     ? systemLanguage
                     : "en";
@@ -68,6 +68,20 @@ namespace Battify
             }
 
             return resourceManager;
+        }
+
+        private static string ResolveLanguage(CultureInfo culture)
+        {
+            // Chinese needs a script-specific resource: "zh" alone does not
+            // distinguish Simplified Chinese from Traditional Chinese.
+            if (culture.Name.StartsWith("zh-Hans", StringComparison.OrdinalIgnoreCase)
+                || culture.Name.Equals("zh-CN", StringComparison.OrdinalIgnoreCase)
+                || culture.Name.Equals("zh-SG", StringComparison.OrdinalIgnoreCase))
+            {
+                return "zh-Hans";
+            }
+
+            return culture.TwoLetterISOLanguageName;
         }
     }
 
