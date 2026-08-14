@@ -75,6 +75,7 @@
   <data name="Language.System" xml:space="preserve"><value>시스템 기본값</value></data>
   <data name="Language.Korean" xml:space="preserve"><value>한국어</value></data>
   <data name="Language.English" xml:space="preserve"><value>English</value></data>
+  <data name="Language.Japanese" xml:space="preserve"><value>일본어</value></data>
   <data name="Language.RestartRequired" xml:space="preserve"><value>언어 변경은 Battify를 다시 시작한 후 적용됩니다.</value></data>
   <data name="Language.RestartTitle" xml:space="preserve"><value>언어 변경</value></data>
 </root>

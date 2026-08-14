@@ -86,10 +86,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Keep English strings in Battify.exe instead of generating en\Battify.resources.dll. -->
-    <EmbeddedResource Update="Strings.en.resx">
+    <!-- Embed every translation in Battify.exe. Add new languages as
+         Localization\Strings.&lt;language-code&gt;.resx. -->
+    <EmbeddedResource Update="Localization\Strings.*.resx">
       <WithCulture>false</WithCulture>
-      <LogicalName>Battify.Strings.en.resources</LogicalName>
+      <LogicalName>Battify.Localization.%(Filename).resources</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Update="AppIcon.resx">
       <Generator>ResXFileCodeGenerator</Generator>

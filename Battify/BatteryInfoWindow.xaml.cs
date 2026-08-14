@@ -35,6 +35,22 @@ namespace Battify
             // 창이 로드된 후 DWM 속성 설정
             this.Loaded += BatteryInfoWindow_Loaded;
 
+            LanguageSelector.Items.Add(new System.Windows.Controls.ComboBoxItem
+            {
+                Tag = "system",
+                Content = Localizer.Get("Language.System")
+            });
+
+            foreach (var language in Localizer.GetAvailableLanguages())
+            {
+                var culture = System.Globalization.CultureInfo.GetCultureInfo(language);
+                LanguageSelector.Items.Add(new System.Windows.Controls.ComboBoxItem
+                {
+                    Tag = language,
+                    Content = culture.NativeName
+                });
+            }
+
             foreach (var item in LanguageSelector.Items.OfType<System.Windows.Controls.ComboBoxItem>())
             {
                 if ((string)item.Tag == Settings.Default.language)

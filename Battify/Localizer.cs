@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Reflection;
 using System.Resources;
 using System.Threading;
 using System.Windows.Markup;
@@ -7,41 +10,43 @@ namespace Battify
 {
     internal static class Localizer
     {
-        private static readonly ResourceManager ResourceManager = new ResourceManager("Battify.Strings", typeof(Localizer).Assembly);
-        private static readonly ResourceManager EnglishResourceManager = new ResourceManager("Battify.Strings.en", typeof(Localizer).Assembly);
+        private const string ResourceBaseName = "Battify.Localization.Strings";
+        private static readonly Assembly Assembly = typeof(Localizer).Assembly;
+        private static readonly ResourceManager EnglishResourceManager = new ResourceManager($"{ResourceBaseName}.en", Assembly);
+        private static readonly HashSet<string> EmbeddedLanguages = Assembly.GetManifestResourceNames()
+            .Where(name => name.StartsWith($"{ResourceBaseName}.", StringComparison.Ordinal) && name.EndsWith(".resources", StringComparison.Ordinal))
+            .Select(name => name.Substring(ResourceBaseName.Length + 1, name.Length - ResourceBaseName.Length - ".resources".Length - 1))
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+        private static readonly Dictionary<string, ResourceManager> TranslationResourceManagers = new(StringComparer.OrdinalIgnoreCase);
 
         public static string Get(string key)
         {
-            var resourceManager = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "en"
-                ? EnglishResourceManager
-                : ResourceManager;
+            var language = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+            var resourceManager = GetTranslationResourceManager(language);
 
-            // The English resource is embedded in the main assembly, so it is
-            // intentionally read as the invariant resource set rather than as
-            // a satellite assembly.
-            var culture = ReferenceEquals(resourceManager, EnglishResourceManager)
-                ? CultureInfo.InvariantCulture
-                : CultureInfo.CurrentUICulture;
-
-            return resourceManager.GetString(key, culture) ?? key;
+            // Translations are embedded in the main assembly, so they are read
+            // as invariant resource sets rather than as satellite assemblies.
+            return resourceManager.GetString(key, CultureInfo.InvariantCulture) ?? key;
         }
 
         public static string Format(string key, params object[] arguments) =>
             string.Format(CultureInfo.CurrentCulture, Get(key), arguments);
+
+        public static IEnumerable<string> GetAvailableLanguages() =>
+            EmbeddedLanguages.OrderBy(language => language);
 
         public static void ApplyConfiguredCulture()
         {
             var language = Settings.Default.language;
             if (language == "system")
             {
-                // Korean is the only non-English translation currently
-                // available; all other Windows UI languages use English.
-                language = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ko"
-                    ? "ko"
+                var systemLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+                language = EmbeddedLanguages.Contains(systemLanguage)
+                    ? systemLanguage
                     : "en";
             }
 
-            if (language == "ko" || language == "en")
+            if (EmbeddedLanguages.Contains(language))
             {
                 var culture = CultureInfo.GetCultureInfo(language);
                 CultureInfo.DefaultThreadCurrentCulture = culture;
@@ -49,6 +54,20 @@ namespace Battify
                 Thread.CurrentThread.CurrentCulture = culture;
                 Thread.CurrentThread.CurrentUICulture = culture;
             }
+        }
+
+        private static ResourceManager GetTranslationResourceManager(string language)
+        {
+            if (language == "en" || !EmbeddedLanguages.Contains(language))
+                return EnglishResourceManager;
+
+            if (!TranslationResourceManagers.TryGetValue(language, out var resourceManager))
+            {
+                resourceManager = new ResourceManager($"{ResourceBaseName}.{language}", Assembly);
+                TranslationResourceManagers.Add(language, resourceManager);
+            }
+
+            return resourceManager;
         }
     }
 

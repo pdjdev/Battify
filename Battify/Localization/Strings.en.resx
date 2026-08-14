@@ -332,6 +332,9 @@ Check the system tray.</value>
   <data name="Language.English" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="Language.Japanese" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
   <data name="Language.RestartRequired" xml:space="preserve">
     <value>The language change will apply after restarting Battify.</value>
   </data>

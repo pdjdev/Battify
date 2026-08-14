@@ -455,9 +455,6 @@
                   Margin="0,54,13,0"
                   SelectedValuePath="Tag"
                   SelectionChanged="LanguageSelector_SelectionChanged">
-            <ComboBoxItem Tag="system" Content="{local:Loc Language.System}"/>
-            <ComboBoxItem Tag="ko" Content="{local:Loc Language.Korean}"/>
-            <ComboBoxItem Tag="en" Content="{local:Loc Language.English}"/>
         </ComboBox>
     </Grid>
 </Window>
