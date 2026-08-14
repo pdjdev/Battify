@@ -74,9 +74,9 @@
 
                 </Canvas>
             </Viewbox>
-            <TextBlock x:Name="PercentLabel" Grid.Column="1" Text="80%" VerticalAlignment="Center" Margin="0,5,0,0"
-                       FontSize="40" FontWeight="Light"
-                       LineHeight="40" LineStackingStrategy="BlockLineHeight"/>
+            <TextBlock x:Name="PercentLabel" Grid.Column="1" Text="98%" VerticalAlignment="Center" Margin="0,5,0,0"
+                       FontSize="40"
+                       LineHeight="40" LineStackingStrategy="BlockLineHeight" FontFamily="Segoe UI"/>
         </Grid>
 
     </Border>

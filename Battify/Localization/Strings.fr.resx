@@ -264,7 +264,7 @@ Vérifiez la zone de notification.</value>
     <value>Notifications</value>
   </data>
   <data name="Tray.InformationSettings" xml:space="preserve">
-    <value>Informations / Paramètres</value>
+    <value>Info / Paramètres</value>
   </data>
   <data name="Tray.EnableSound" xml:space="preserve">
     <value>Activer le son</value>

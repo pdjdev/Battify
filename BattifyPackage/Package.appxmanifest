@@ -10,7 +10,7 @@
 	<Identity
     Name="49490PBJSoftware.Battify"
     Publisher="CN=998C84B6-4B4D-482F-B102-3947ACC42DA7"
-    Version="1.0.3.0" />
+    Version="1.1.0.0" />
 
   <Properties>
     <DisplayName>Battify</DisplayName>
@@ -34,7 +34,7 @@
                  EntryPoint="Windows.FullTrustApplication">
       <uap:VisualElements
         DisplayName="Battify"
-        Description="배터리 트레이 표시 및 알림 앱"
+        Description="Battery Tray Display and Notification App"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">

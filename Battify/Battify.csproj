@@ -23,10 +23,10 @@
     <Title>Battify</Title>
     <PackageId>Battify</PackageId>
 
-	<Version>1.0.3</Version>
-	<AssemblyVersion>1.0.3</AssemblyVersion>
-	<FileVersion>1.0.3</FileVersion>
-	<InformationalVersion>1.0.3</InformationalVersion>
+	<Version>1.1.0</Version>
+	<AssemblyVersion>1.1.0</AssemblyVersion>
+	<FileVersion>1.1.0</FileVersion>
+	<InformationalVersion>1.1.0</InformationalVersion>
 	  
     <Company>PBJSoftware</Company>
     <Copyright>PBJSoftware</Copyright>

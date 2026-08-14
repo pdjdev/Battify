@@ -264,7 +264,7 @@ Comprueba la bandeja del sistema.</value>
     <value>Notificaciones</value>
   </data>
   <data name="Tray.InformationSettings" xml:space="preserve">
-    <value>Información / Configuración</value>
+    <value>Info / Configuración</value>
   </data>
   <data name="Tray.EnableSound" xml:space="preserve">
     <value>Activar sonido</value>
