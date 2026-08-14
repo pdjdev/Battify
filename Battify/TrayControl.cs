@@ -11,6 +11,7 @@ namespace Battify
         {
             InitializeComponent();
             mainWindow = w;
+            ApplyLocalizedTexts();
 
             // 커스텀 렌더러 적용
             contextMenuStrip1.Renderer = new DarkMenuRenderer();
@@ -71,11 +72,11 @@ namespace Battify
                 bool success = await MsixStartupSetter.SetStartupAsync(true);
                 if (success)
                 {
-                    trayIcon.ShowBalloonTip(2000, "설정 완료", "시작 프로그램으로 설정되었습니다.", ToolTipIcon.Info);
+                    trayIcon.ShowBalloonTip(2000, Localizer.Get("Tray.StartupCompleted"), Localizer.Get("Tray.StartupCompletedMessage"), ToolTipIcon.Info);
                 }
                 else
                 {
-                    trayIcon.ShowBalloonTip(2000, "설정 실패", "시작 프로그램 설정에 실패했습니다.", ToolTipIcon.Error);
+                    trayIcon.ShowBalloonTip(2000, Localizer.Get("Tray.StartupFailed"), Localizer.Get("Tray.StartupFailedMessage"), ToolTipIcon.Error);
                 }
             }
             finally
@@ -160,8 +161,8 @@ namespace Battify
 
         public void StartupSuggestBalloonShow()
         {
-            trayIcon.BalloonTipTitle = "시작 프로그램 설정 안됨";
-            trayIcon.BalloonTipText = "여기를 눌러 시작프로그램으로 설정하세요.";
+            trayIcon.BalloonTipTitle = Localizer.Get("Tray.StartupNotConfigured");
+            trayIcon.BalloonTipText = Localizer.Get("Tray.StartupSuggestion");
             trayIcon.BalloonTipIcon = ToolTipIcon.Info;
 
             trayIcon.ShowBalloonTip(3000);
@@ -182,30 +183,44 @@ namespace Battify
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             // 알림음 메뉴 텍스트 업데이트
-            muteToolStripMenuItem.Text = Settings.Default.mute ? "알림음 켜기" : "알림음 끄기";
+            muteToolStripMenuItem.Text = Settings.Default.mute ? Localizer.Get("Tray.EnableSound") : Localizer.Get("Tray.DisableSound");
 
             // 팝업 메뉴 텍스트 업데이트
-            togglePopupToolStripMenuItem.Text = Settings.Default.nopopup ? "팝업 켜기" : "팝업 끄기";
+            togglePopupToolStripMenuItem.Text = Settings.Default.nopopup ? Localizer.Get("Tray.EnablePopup") : Localizer.Get("Tray.DisablePopup");
 
             // 팝업 색상 메뉴 텍스트 업데이트
             string popupThemeText = Settings.Default.theme switch
             {
-                "auto" => "팝업 색: 자동",
-                "light" => "팝업 색: 라이트",
-                "dark" => "팝업 색: 다크",
-                _ => "팝업 색: 자동"
+                "auto" => Localizer.Get("Tray.PopupThemeAuto"),
+                "light" => Localizer.Get("Tray.PopupThemeLight"),
+                "dark" => Localizer.Get("Tray.PopupThemeDark"),
+                _ => Localizer.Get("Tray.PopupThemeAuto")
             };
             changeThemeToolStripMenuItem.Text = popupThemeText;
 
             // 아이콘 색상 메뉴 텍스트 업데이트
             string iconThemeText = Settings.Default.traytheme switch
             {
-                "auto" => "아이콘 색: 자동",
-                "white" => "아이콘 색: 라이트",
-                "black" => "아이콘 색: 다크",
-                _ => "아이콘 색: 자동"
+                "auto" => Localizer.Get("Tray.IconThemeAuto"),
+                "white" => Localizer.Get("Tray.IconThemeLight"),
+                "black" => Localizer.Get("Tray.IconThemeDark"),
+                _ => Localizer.Get("Tray.IconThemeAuto")
             };
             changeTrayToolStripMenuItem.Text = iconThemeText;
+        }
+
+        private void ApplyLocalizedTexts()
+        {
+            closeAppToolStripMenuItem.Text = Localizer.Get("Tray.Exit");
+            appearanceToolStripMenuItem.Text = Localizer.Get("Tray.Appearance");
+            notificationToolStripMenuItem.Text = Localizer.Get("Tray.Notifications");
+            showBattInfoToolStripMenuItem.Text = Localizer.Get("Tray.InformationSettings");
+        }
+
+        public void RefreshLocalizedTexts()
+        {
+            ApplyLocalizedTexts();
+            contextMenuStrip1_Opening(this, new System.ComponentModel.CancelEventArgs());
         }
     }
 }

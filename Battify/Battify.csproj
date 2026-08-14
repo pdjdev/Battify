@@ -86,6 +86,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Embed every translation in Battify.exe. Add new languages as
+         Localization\Strings.&lt;language-code&gt;.resx. -->
+    <EmbeddedResource Update="Localization\Strings.*.resx">
+      <WithCulture>false</WithCulture>
+      <LogicalName>Battify.Localization.%(Filename).resources</LogicalName>
+    </EmbeddedResource>
     <EmbeddedResource Update="AppIcon.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppIcon.Designer.cs</LastGenOutput>

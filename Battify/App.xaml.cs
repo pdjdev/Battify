@@ -14,6 +14,8 @@ namespace Battify
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            Localizer.ApplyConfiguredCulture();
+
             // 뮤텍스 생성 시도
             _mutex = new Mutex(true, MutexName, out bool createdNew);
 
@@ -22,7 +24,7 @@ namespace Battify
                 // 이미 실행 중인 인스턴스가 있음
                 /*
                 System.Windows.MessageBox.Show(
-                    "Battify가 이미 실행 중입니다.\n시스템 트레이를 확인해주세요.",
+                    Localizer.Get("App.AlreadyRunning"),
                     "Battify",
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);

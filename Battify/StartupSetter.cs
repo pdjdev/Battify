@@ -11,7 +11,7 @@ namespace Battify
         public static bool SetStartup(bool enable)
         {
             using var key = Registry.CurrentUser.OpenSubKey(RunKeyPath, writable: true)
-                ?? throw new InvalidOperationException("시작 프로그램 레지스트리 키를 열 수 없습니다.");
+                ?? throw new InvalidOperationException(Localizer.Get("Startup.RegistryKeyFailed"));
 
             if (enable)
                 key.SetValue(ValueName, QuoteExecutablePath(GetExecutablePath()), RegistryValueKind.String);

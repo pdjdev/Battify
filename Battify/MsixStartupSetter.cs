@@ -39,7 +39,7 @@ namespace Battify
             }
             catch (Exception ex)
             {
-                LastError = $"MSIX 시작 프로그램 상태를 확인하지 못했습니다: {ex.Message}";
+                LastError = Localizer.Format("Startup.StatusCheckFailed", ex.Message);
                 return false;
             }
         }
@@ -57,7 +57,7 @@ namespace Battify
                 }
                 catch (Exception ex)
                 {
-                    LastError = $"시작 프로그램 레지스트리를 변경하지 못했습니다: {ex.Message}";
+                    LastError = Localizer.Format("Startup.RegistryChangeFailed", ex.Message);
                     return false;
                 }
             }
@@ -81,19 +81,19 @@ namespace Battify
                     case StartupTaskState.Disabled:
                         return await startupTask.RequestEnableAsync() == StartupTaskState.Enabled;
                     case StartupTaskState.DisabledByUser:
-                        LastError = "작업 관리자에서 사용자가 시작 프로그램을 해제했습니다. 작업 관리자의 시작 앱 탭에서 Battify를 다시 활성화해주세요.";
+                        LastError = Localizer.Get("Startup.DisabledByUser");
                         return false;
                     case StartupTaskState.DisabledByPolicy:
-                        LastError = "조직 또는 Windows 정책에 의해 시작 프로그램이 비활성화되어 있습니다.";
+                        LastError = Localizer.Get("Startup.DisabledByPolicy");
                         return false;
                     default:
-                        LastError = $"알 수 없는 시작 프로그램 상태입니다: {startupTask.State}";
+                        LastError = Localizer.Format("Startup.UnknownState", startupTask.State);
                         return false;
                 }
             }
             catch (Exception ex)
             {
-                LastError = $"MSIX 시작 프로그램을 변경하지 못했습니다: {ex.Message}";
+                LastError = Localizer.Format("Startup.MsixChangeFailed", ex.Message);
                 return false;
             }
         }

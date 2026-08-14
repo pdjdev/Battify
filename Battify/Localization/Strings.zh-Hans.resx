@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App.AlreadyRunning" xml:space="preserve">
+    <value>Battify 已在运行。
+请查看系统托盘。</value>
+  </data>
+  <data name="Window.BatteryInfo.Title" xml:space="preserve">
+    <value>Battify 信息</value>
+  </data>
+  <data name="Window.TrayGuide.Title" xml:space="preserve">
+    <value>Battify 安装完成</value>
+  </data>
+  <data name="Battery.AppVersion" xml:space="preserve">
+    <value>巴蒂法伊，v{0}</value>
+  </data>
+  <data name="Battery.SectionTitle" xml:space="preserve">
+    <value>电池和应用信息</value>
+  </data>
+  <data name="Common.Refresh" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Common.Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>正在加载...</value>
+  </data>
+  <data name="Battery.StartupEnabled" xml:space="preserve">
+    <value>开机启动</value>
+  </data>
+  <data name="Battery.CheckForUpdates" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
+  <data name="Battery.Store" xml:space="preserve">
+    <value>（商店）</value>
+  </data>
+  <data name="Battery.DeveloperSite" xml:space="preserve">
+    <value>开发者网站 (pbj.kr)</value>
+  </data>
+  <data name="Battery.Voltage" xml:space="preserve">
+    <value>电压：{0} mV</value>
+  </data>
+  <data name="Battery.DesignVoltage" xml:space="preserve">
+    <value>设计电压：{0} mV</value>
+  </data>
+  <data name="Battery.ChargeRate" xml:space="preserve">
+    <value>充电速率：{0} mW</value>
+  </data>
+  <data name="Battery.DischargeRate" xml:space="preserve">
+    <value>放电速率：{0} mW</value>
+  </data>
+  <data name="Battery.DesignCapacity" xml:space="preserve">
+    <value>设计容量：{0} mWh</value>
+  </data>
+  <data name="Battery.MaxCapacity" xml:space="preserve">
+    <value>满充容量：{0} mWh</value>
+  </data>
+  <data name="Battery.RemainingCapacity" xml:space="preserve">
+    <value>剩余容量（旧版）：{0} ({1}) mWh</value>
+  </data>
+  <data name="Battery.ModelName" xml:space="preserve">
+    <value>型号：{0}</value>
+  </data>
+  <data name="Battery.TimeHoursMinutes" xml:space="preserve">
+    <value>{0}小时 {1}分钟</value>
+  </data>
+  <data name="Battery.TimeMinutes" xml:space="preserve">
+    <value>{0}分钟</value>
+  </data>
+  <data name="Battery.EstimatedChargeTime" xml:space="preserve">
+    <value>预计充电时间：{0}</value>
+  </data>
+  <data name="Battery.LegacyEstimatedTime" xml:space="preserve">
+    <value>旧版预计时间：{0}</value>
+  </data>
+  <data name="Battery.ChargePercentage" xml:space="preserve">
+    <value>充电百分比：{0:0.00}%</value>
+  </data>
+  <data name="Battery.WearRate" xml:space="preserve">
+    <value>损耗程度：{0:0.00}%</value>
+  </data>
+  <data name="Battery.PowerOnline" xml:space="preserve">
+    <value>已连接电源：{0}</value>
+  </data>
+  <data name="Battery.LoadFailed" xml:space="preserve">
+    <value>加载电池信息失败：{0}</value>
+  </data>
+  <data name="Battery.Author" xml:space="preserve">
+    <value>由 PBJSoftware（Dongjun Park）制作</value>
+  </data>
+  <data name="Battery.License" xml:space="preserve">
+    <value>本程序根据 MIT 许可证免费提供。</value>
+  </data>
+  <data name="Startup.ChangeFailed" xml:space="preserve">
+    <value>无法更改开机启动设置。</value>
+  </data>
+  <data name="Startup.ChangeError" xml:space="preserve">
+    <value>更改开机启动设置时出错。
+{0}</value>
+  </data>
+  <data name="Startup.StatusCheckFailed" xml:space="preserve">
+    <value>无法检查 MSIX 开机启动状态：{0}</value>
+  </data>
+  <data name="Startup.RegistryChangeFailed" xml:space="preserve">
+    <value>无法更改开机启动注册表设置：{0}</value>
+  </data>
+  <data name="Startup.DisabledByUser" xml:space="preserve">
+    <value>用户已在任务管理器中禁用开机启动。请在“启动应用”选项卡中重新启用 Battify。</value>
+  </data>
+  <data name="Startup.DisabledByPolicy" xml:space="preserve">
+    <value>开机启动已被组织或 Windows 策略禁用。</value>
+  </data>
+  <data name="Startup.UnknownState" xml:space="preserve">
+    <value>未知的开机启动状态：{0}</value>
+  </data>
+  <data name="Startup.MsixChangeFailed" xml:space="preserve">
+    <value>无法更改 MSIX 开机启动设置：{0}</value>
+  </data>
+  <data name="Startup.RegistryKeyFailed" xml:space="preserve">
+    <value>无法打开开机启动注册表项。</value>
+  </data>
+  <data name="Tray.StartupCompleted" xml:space="preserve">
+    <value>设置完成</value>
+  </data>
+  <data name="Tray.StartupCompletedMessage" xml:space="preserve">
+    <value>已添加到启动应用。</value>
+  </data>
+  <data name="Tray.StartupFailed" xml:space="preserve">
+    <value>设置失败</value>
+  </data>
+  <data name="Tray.StartupFailedMessage" xml:space="preserve">
+    <value>无法添加到启动应用。</value>
+  </data>
+  <data name="Tray.StartupNotConfigured" xml:space="preserve">
+    <value>未配置开机启动</value>
+  </data>
+  <data name="Tray.StartupSuggestion" xml:space="preserve">
+    <value>单击此处以开机启动 Battify。</value>
+  </data>
+  <data name="Tray.Exit" xml:space="preserve">
+    <value>退出 Battify</value>
+  </data>
+  <data name="Tray.Appearance" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="Tray.Notifications" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="Tray.InformationSettings" xml:space="preserve">
+    <value>信息 / 设置</value>
+  </data>
+  <data name="Tray.EnableSound" xml:space="preserve">
+    <value>启用声音</value>
+  </data>
+  <data name="Tray.DisableSound" xml:space="preserve">
+    <value>禁用声音</value>
+  </data>
+  <data name="Tray.EnablePopup" xml:space="preserve">
+    <value>启用弹窗</value>
+  </data>
+  <data name="Tray.DisablePopup" xml:space="preserve">
+    <value>禁用弹窗</value>
+  </data>
+  <data name="Tray.PopupThemeAuto" xml:space="preserve">
+    <value>弹窗颜色：自动</value>
+  </data>
+  <data name="Tray.PopupThemeLight" xml:space="preserve">
+    <value>弹窗颜色：浅色</value>
+  </data>
+  <data name="Tray.PopupThemeDark" xml:space="preserve">
+    <value>弹窗颜色：深色</value>
+  </data>
+  <data name="Tray.IconThemeAuto" xml:space="preserve">
+    <value>图标颜色：自动</value>
+  </data>
+  <data name="Tray.IconThemeLight" xml:space="preserve">
+    <value>图标颜色：浅色</value>
+  </data>
+  <data name="Tray.IconThemeDark" xml:space="preserve">
+    <value>图标颜色：深色</value>
+  </data>
+  <data name="Tray.NoBattery" xml:space="preserve">
+    <value>未检测到电池</value>
+  </data>
+  <data name="Tray.Charging" xml:space="preserve">
+    <value>{0}%，正在充电</value>
+  </data>
+  <data name="Tray.Remaining" xml:space="preserve">
+    <value>剩余 {0}%</value>
+  </data>
+  <data name="Guide.Installed" xml:space="preserve">
+    <value>Battify 已安装！</value>
+  </data>
+  <data name="Guide.Line1" xml:space="preserve">
+    <value>如果看不到电池百分比图标，</value>
+  </data>
+  <data name="Guide.Line2Prefix" xml:space="preserve">
+    <value>请将百分比（</value>
+  </data>
+  <data name="Guide.Line2Suffix" xml:space="preserve">
+    <value>）图标拖出以固定。</value>
+  </data>
+  <data name="Guide.Confirm" xml:space="preserve">
+    <value>知道了</value>
+  </data>
+  <data name="Language.Label" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="Language.System" xml:space="preserve">
+    <value>系统默认</value>
+  </data>
+  <data name="Language.RestartRequired" xml:space="preserve">
+    <value>重启 Battify 后将应用语言更改。</value>
+  </data>
+  <data name="Language.RestartTitle" xml:space="preserve">
+    <value>语言已更改</value>
+  </data>
+</root>
