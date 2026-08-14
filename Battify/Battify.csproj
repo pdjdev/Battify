@@ -9,18 +9,24 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
+
+    <!-- Windows 10/11 includes .NET Framework 4.8, so the MSIX package does
+         not need to ship the .NET desktop runtime. -->
+    <TargetFramework>net48</TargetFramework>
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
 	  
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <Title>Battify</Title>
     <PackageId>Battify</PackageId>
 
-	<Version>1.0.2</Version>
-	<AssemblyVersion>1.0.2</AssemblyVersion>
-	<FileVersion>1.0.2</FileVersion>
-	<InformationalVersion>1.0.2</InformationalVersion>
+	<Version>1.0.3</Version>
+	<AssemblyVersion>1.0.3</AssemblyVersion>
+	<FileVersion>1.0.3</FileVersion>
+	<InformationalVersion>1.0.3</InformationalVersion>
 	  
     <Company>PBJSoftware</Company>
     <Copyright>PBJSoftware</Copyright>
@@ -30,44 +36,20 @@
   
   </PropertyGroup>
 
-  <!-- MSIX/Store 빌드 구성 -->
-  <PropertyGroup Condition="'$(Configuration)' != 'Portable'">
-    <TargetFramework>net8.0-windows10.0.18362.0</TargetFramework>
-	<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
-	<DefineConstants>$(DefineConstants);STORE_BUILD</DefineConstants>
-  </PropertyGroup>
-
-  <!-- 포터블 빌드 구성 (WinRT API 제외) -->
-  <PropertyGroup Condition="'$(Configuration)' == 'Portable'">
-    <TargetFramework>net8.0-windows</TargetFramework>
-	<DefineConstants>$(DefineConstants);PORTABLE_BUILD</DefineConstants>
-    <PublishSingleFile>true</PublishSingleFile>
-    <SelfContained>false</SelfContained>
-	<PublishTrimmed>false</PublishTrimmed>
-  </PropertyGroup>
-  <!-- 퍼블리시: dotnet publish -c Portable -->
-
-  <!-- Debug 빌드 -->
-  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <PublishSingleFile>false</PublishSingleFile>
-    <SelfContained>false</SelfContained>
-	<PublishTrimmed>false</PublishTrimmed>
-  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\battify_info_banner.png" />
+    <Resource Include="Resources\images\tray_guide_image.png" />
+  </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Resources\images\battify_info_banner.png" />
-    <Content Remove="Resources\images\tray_guide_image.png" />
+    <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.26100.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="icon.ico" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="Resources\images\battify_info_banner.png" />
-    <None Include="Resources\images\tray_guide_image.png" />
-  </ItemGroup>
-	
   <ItemGroup>
     <Compile Update="AppIcon.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -88,11 +70,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DefAlertSound.resx</DependentUpon>
-    </Compile>
-    <Compile Update="ImageResources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ImageResources.resx</DependentUpon>
     </Compile>
     <Compile Update="Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -117,10 +94,6 @@
     <EmbeddedResource Update="DefAlertSound.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DefAlertSound.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="ImageResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ImageResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

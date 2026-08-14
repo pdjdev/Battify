@@ -34,7 +34,7 @@
 
 ## 요구 사양
 - Windows 10+ 이상 버전
-- .NET 8
+- .NET Framework 4.8 (Windows 10/11 기본 포함)
 
 ## 스크린샷
 

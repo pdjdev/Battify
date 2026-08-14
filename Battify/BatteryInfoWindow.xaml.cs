@@ -1,10 +1,8 @@
 using System.Diagnostics;
-using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
-using System.Windows.Media.Imaging;
 
 namespace Battify
 {
@@ -34,39 +32,8 @@ namespace Battify
                 assmblyVersion = "1.0.0";
             }
 
-            // 배너 이미지 로드
-            LoadBannerImage();
-
             // 창이 로드된 후 DWM 속성 설정
             this.Loaded += BatteryInfoWindow_Loaded;
-        }
-
-        private void LoadBannerImage()
-        {
-            try
-            {
-                // resx에서 이미지 바이트 배열 가져오기
-                byte[] imageBytes = ImageResources.battify_info_banner;
-                
-                if (imageBytes != null && imageBytes.Length > 0)
-                {
-                    using (var ms = new MemoryStream(imageBytes))
-                    {
-                        var bitmap = new BitmapImage();
-                        bitmap.BeginInit();
-                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                        bitmap.StreamSource = ms;
-                        bitmap.EndInit();
-                        bitmap.Freeze(); // UI 스레드 외부에서 사용 가능하도록
-                        
-                        BannerImage.Source = bitmap;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"배너 이미지 로드 실패: {ex.Message}");
-            }
         }
 
         private async void BatteryInfoWindow_Loaded(object sender, RoutedEventArgs e)
@@ -289,100 +256,49 @@ namespace Battify
             }
         }
 
+        private bool isUpdatingStartupSetting;
+
         private async Task HandleStartupSettingChange(bool isChecked)
         {
-            // 로드된 상태가 아니면 무시 (초기화 중 이벤트 방지)
-            if (!loaded) return;
+            // 초기화 또는 코드에 의한 UI 동기화 중에는 설정을 변경하지 않습니다.
+            if (!loaded || isUpdatingStartupSetting) return;
 
             try
             {
-                // 디버깅: 설정 시도 전 상태 확인
-                if (IsMsixEnvironment())
-                {
-                    var beforeState = await MsixStartupSetter.GetCurrentStateAsync();
-                    Debug.WriteLine($"설정 시도 전 상태: {beforeState}");
-                }
-
                 bool success = await MsixStartupSetter.SetStartupAsync(isChecked);
-
-                // 디버깅: 설정 시도 후 상태 확인
-                if (IsMsixEnvironment())
-                {
-                    var afterState = await MsixStartupSetter.GetCurrentStateAsync();
-                    Debug.WriteLine($"설정 시도 후 상태: {afterState}");
-                }
-
                 if (!success)
                 {
-                    // 설정 실패 시 체크박스 상태를 원래대로 되돌림
-                    SetStartupChk.IsChecked = !isChecked;
-
-                    // DisabledByUser 상태인지 확인
-                    bool isDisabledByUser = await MsixStartupSetter.HandleDisabledByUserAsync();
-
-                    string errorMessage;
-                    if (isDisabledByUser)
-                    {
-                        errorMessage = "시작 프로그램 설정이 사용자에 의해 비활성화되었습니다.\n\n" +
-                                      "다시 활성화하려면:\n" +
-                                      "• 작업 관리자 > 시작프로그램 탭에서 'Battify'를 찾아 '사용'으로 설정하거나\n" +
-                                      "• Windows 설정 > 앱 > 시작프로그램에서 'Battify'를 켜기로 설정하세요.";
-                    }
-                    else if (IsMsixEnvironment())
-                    {
-                        errorMessage = "시작 프로그램 설정에 실패했습니다.\n\n" +
-                                      "Microsoft Store에서 설치된 앱의 경우:\n" +
-                                      "• Windows 설정 > 앱 > 시작프로그램에서 직접 설정할 수 있습니다.\n" +
-                                      "• 또는 작업 관리자 > 시작프로그램 탭에서 관리할 수 있습니다.";
-                    }
-                    else
-                    {
-                        errorMessage = "시작 프로그램 설정에 실패했습니다.";
-                    }
+                    SetStartupCheckbox(!isChecked);
+                    var errorMessage = MsixStartupSetter.LastError
+                        ?? "시작 프로그램 설정을 변경하지 못했습니다.";
 
                     global::System.Windows.MessageBox.Show(errorMessage, "Battify", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
 
-                // 성공 후 실제 상태를 다시 확인하여 UI 동기화
-                bool actualState = await MsixStartupSetter.IsStartupEnabledAsync();
-                if (SetStartupChk.IsChecked != actualState)
-                {
-                    SetStartupChk.IsChecked = actualState;
-                }
+                // Windows가 반영한 실제 상태로 UI를 맞춥니다.
+                SetStartupCheckbox(await MsixStartupSetter.IsStartupEnabledAsync());
             }
             catch (Exception ex)
             {
-                // 설정 실패 시 체크박스 상태를 원래대로 되돌림
-                SetStartupChk.IsChecked = !isChecked;
-
+                SetStartupCheckbox(!isChecked);
                 Debug.WriteLine($"SetStartupChk 변경 예외: {ex}");
 
                 global::System.Windows.MessageBox.Show("시작 프로그램 설정 중 오류가 발생했습니다." + Environment.NewLine + ex.Message,
                                 "Battify", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            if (isChecked)
-            {
-                // global::System.Windows.MessageBox.Show("시작 프로그램으로 설정되었습니다.", "Battify", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                // global::System.Windows.MessageBox.Show("시작 프로그램 설정이 해제되었습니다.", "Battify", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
-        private bool IsMsixEnvironment()
+        private void SetStartupCheckbox(bool isChecked)
         {
+            isUpdatingStartupSetting = true;
             try
             {
-                var location = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                return location.Contains("WindowsApps") || !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PACKAGE_FAMILY_NAME"));
+                SetStartupChk.IsChecked = isChecked;
             }
-            catch
+            finally
             {
-                return false;
+                isUpdatingStartupSetting = false;
             }
         }
     }

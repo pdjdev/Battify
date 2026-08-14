@@ -74,6 +74,7 @@
                 <!-- 이미지 박스 -->
                 <Image x:Name="GuideImage" 
                        Grid.Row="0" 
+                       Source="/Resources/images/tray_guide_image.png"
                        Stretch="Uniform"
                        VerticalAlignment="Center"
                        Margin="0,0,0,15"/>

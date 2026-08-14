@@ -1,25 +1,46 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace Battify
 {
-    internal class StartupSetter
+    internal static class StartupSetter
     {
-        public static void SetStartup(bool set)
+        private const string RunKeyPath = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
+        private const string ValueName = "Battify";
+
+        public static bool SetStartup(bool enable)
         {
-            RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            using var key = Registry.CurrentUser.OpenSubKey(RunKeyPath, writable: true)
+                ?? throw new InvalidOperationException("시작 프로그램 레지스트리 키를 열 수 없습니다.");
 
-            if (set)
-                rk.SetValue("Battify", Application.ExecutablePath);
+            if (enable)
+                key.SetValue(ValueName, QuoteExecutablePath(GetExecutablePath()), RegistryValueKind.String);
             else
-                rk.DeleteValue("Battify", false);
+                key.DeleteValue(ValueName, throwOnMissingValue: false);
 
+            return CheckStartup();
         }
 
         public static bool CheckStartup()
         {
-            RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            var registryValue = rk.GetValue("Battify") as string;
-            return registryValue != null && registryValue.Equals(Application.ExecutablePath, StringComparison.OrdinalIgnoreCase);
+            using var key = Registry.CurrentUser.OpenSubKey(RunKeyPath, writable: false);
+            var value = key?.GetValue(ValueName) as string;
+
+            if (string.IsNullOrWhiteSpace(value))
+                return false;
+
+            return string.Equals(value.Trim(), QuoteExecutablePath(GetExecutablePath()), StringComparison.OrdinalIgnoreCase);
+        }
+
+        private static string GetExecutablePath()
+        {
+            return Process.GetCurrentProcess().MainModule?.FileName
+                ?? Application.ExecutablePath;
+        }
+
+        private static string QuoteExecutablePath(string executablePath)
+        {
+            return $"\"{executablePath}\"";
         }
     }
 }

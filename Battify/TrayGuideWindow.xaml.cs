@@ -1,9 +1,7 @@
 using System.Diagnostics;
-using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
-using System.Windows.Media.Imaging;
 
 namespace Battify
 {
@@ -33,40 +31,8 @@ namespace Battify
             this.Left = workArea.Right - this.Width;
             this.Top = workArea.Bottom - this.Height;
 
-            // 가이드 이미지 로드
-            LoadGuideImage();
-
             // 현재 배터리 퍼센트 표시
             UpdateBatteryPercent();
-        }
-
-        // 가이드 이미지 로드
-        private void LoadGuideImage()
-        {
-            try
-            {
-                // resx에서 이미지 바이트 배열 가져오기
-                byte[] imageBytes = ImageResources.tray_guide_image;
-
-                if (imageBytes != null && imageBytes.Length > 0)
-                {
-                    using (var ms = new MemoryStream(imageBytes))
-                    {
-                        var bitmap = new BitmapImage();
-                        bitmap.BeginInit();
-                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                        bitmap.StreamSource = ms;
-                        bitmap.EndInit();
-                        bitmap.Freeze(); // UI 스레드 외부에서 사용 가능하도록
-
-                        GuideImage.Source = bitmap;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"가이드 이미지 로드 실패: {ex.Message}");
-            }
         }
 
         private void SetDarkModeAttribute()
