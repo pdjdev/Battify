@@ -1,3 +1,4 @@
+<img src="screenshots/battify_main.png">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/f5855e80-f63f-4460-83d8-fa41d451916b">
   <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/9a7707da-d0c1-48ba-a372-36d2c66351dd">
@@ -42,7 +43,7 @@ See the [Releases page](https://github.com/pdjdev/Battify/releases).
 
 ## Screenshots
 
-<img src="preview_video.webp" width="800" height="450" />
+<img src="screenshots/preview_video.webp" width="800" height="450" />
 
 <img width="800" height="450" alt="2" src="https://github.com/user-attachments/assets/62e1c43c-835c-4c94-b511-d5ad7d16eafa" />
 
