@@ -8,7 +8,7 @@
 
 # Battify
 
-### A Windows tray battery notifier with sleek popups
+### Ein Akku-Benachrichtigungsprogramm mit schicken Pop-ups und Tray-Symbol
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [Deutsch](README.de.md)
 
@@ -18,27 +18,27 @@
 
 ## Download
 
-### Microsoft Store (Recommended)
+### Microsoft Store (Empfohlen)
 
-<a href="https://apps.microsoft.com/detail/9P4FMBB50JV9?referrer=appbadge&mode=direct" target="_blank">
+<a href="https://apps.microsoft.com/detail/9P4FMBB50JV9?referrer=appbadge&mode=direct">
 	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
 </a>
 
-### Portable version
+### Portable Version
 
-See the [Releases page](https://github.com/pdjdev/Battify/releases).
+Weitere Informationen finden Sie auf der [Release-Seite](https://github.com/pdjdev/Battify/releases).
 
-## Features
+## Funktionen
 
-- Battery percentage icon visible from the taskbar
-- Notification popups when the charging status changes
-- Light and dark theme styling matching Windows 10 and 11
-- HiDPI support
+- Akkuprozentsymbol in der Taskleiste
+- Benachrichtigungen bei Änderungen des Ladestatus
+- An Windows 10 und 11 angepasste Designs für helle und dunkle Darstellung
+- HiDPI-Unterstützung
 
-## Requirements
+## Voraussetzungen
 
-- Windows 10 or later
-- .NET Framework 4.8, included with Windows 10 and 11
+- Windows 10 oder höher
+- .NET Framework 4.8, enthalten in Windows 10 und 11
 
 ## Screenshots
 
@@ -48,14 +48,12 @@ See the [Releases page](https://github.com/pdjdev/Battify/releases).
 
 <img width="800" height="450" alt="3" src="https://github.com/user-attachments/assets/4e256541-161c-4dc1-a062-6f7aa51c89ba" />
 
-## Localization
+## Mehrsprachigkeit
 
-Battify currently provides English, Korean, Japanese, Simplified Chinese, and German translations. The application selects a language based on the Windows display language and falls back to English when a translation is unavailable.
+Battify unterstützt Englisch, Koreanisch, Japanisch, vereinfachtes Chinesisch und Deutsch. Die Sprache wird automatisch anhand der Windows-Anzeigesprache ausgewählt. Wenn keine Übersetzung verfügbar ist, wird Englisch verwendet.
 
-Translation resources are embedded in `Battify.exe`. To add another language, copy `Strings.en.resx` to `Strings.<language-code>.resx` and translate its values.
-
-## License
+## Lizenz
 
 Made by PBJSoftware (박동준)
 
-Battify is available under the MIT License.
+Battify steht unter der MIT License zur Verfügung.

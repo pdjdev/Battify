@@ -8,7 +8,7 @@
 
 # Battify
 
-### A Windows tray battery notifier with sleek popups
+### 通过精致弹窗和托盘图标提醒电池状态的应用程序
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [Deutsch](README.de.md)
 
@@ -16,31 +16,31 @@
 
 ---
 
-## Download
+## 下载
 
-### Microsoft Store (Recommended)
+### Microsoft Store（推荐）
 
 <a href="https://apps.microsoft.com/detail/9P4FMBB50JV9?referrer=appbadge&mode=direct" target="_blank">
 	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
 </a>
 
-### Portable version
+### 便携版
 
-See the [Releases page](https://github.com/pdjdev/Battify/releases).
+请参阅[发布页面](https://github.com/pdjdev/Battify/releases)。
 
-## Features
+## 主要功能
 
-- Battery percentage icon visible from the taskbar
-- Notification popups when the charging status changes
-- Light and dark theme styling matching Windows 10 and 11
-- HiDPI support
+- 可在任务栏查看的电池百分比图标
+- 充电状态变化时显示通知弹窗
+- 匹配 Windows 10 和 11 浅色及深色主题的样式
+- 支持 HiDPI
 
-## Requirements
+## 系统要求
 
-- Windows 10 or later
-- .NET Framework 4.8, included with Windows 10 and 11
+- Windows 10 或更高版本
+- Windows 10 和 11 中已包含的 .NET Framework 4.8
 
-## Screenshots
+## 截图
 
 <img src="preview_video.webp" width="800" height="450" />
 
@@ -48,14 +48,12 @@ See the [Releases page](https://github.com/pdjdev/Battify/releases).
 
 <img width="800" height="450" alt="3" src="https://github.com/user-attachments/assets/4e256541-161c-4dc1-a062-6f7aa51c89ba" />
 
-## Localization
+## 多语言支持
 
-Battify currently provides English, Korean, Japanese, Simplified Chinese, and German translations. The application selects a language based on the Windows display language and falls back to English when a translation is unavailable.
+Battify支持英语、韩语、日语、简体中文和德语。应用会根据 Windows 显示语言自动选择语言；如果没有对应翻译，则使用英语。
 
-Translation resources are embedded in `Battify.exe`. To add another language, copy `Strings.en.resx` to `Strings.<language-code>.resx` and translate its values.
-
-## License
+## 许可证
 
 Made by PBJSoftware (박동준)
 
-Battify is available under the MIT License.
+Battify采用 MIT License 授权。
